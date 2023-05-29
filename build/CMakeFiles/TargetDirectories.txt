@@ -1,0 +1,11 @@
+/Users/francescovezzani/Desktop/Lab informatica/PROGETTO_FINALE/progetto_finale/build/CMakeFiles/edit_cache.dir
+/Users/francescovezzani/Desktop/Lab informatica/PROGETTO_FINALE/progetto_finale/build/CMakeFiles/rebuild_cache.dir
+/Users/francescovezzani/Desktop/Lab informatica/PROGETTO_FINALE/progetto_finale/build/lib/image_helper/CMakeFiles/image_helper.dir
+/Users/francescovezzani/Desktop/Lab informatica/PROGETTO_FINALE/progetto_finale/build/lib/image_helper/CMakeFiles/edit_cache.dir
+/Users/francescovezzani/Desktop/Lab informatica/PROGETTO_FINALE/progetto_finale/build/lib/image_helper/CMakeFiles/rebuild_cache.dir
+/Users/francescovezzani/Desktop/Lab informatica/PROGETTO_FINALE/progetto_finale/build/lib/mnist/CMakeFiles/mnist.dir
+/Users/francescovezzani/Desktop/Lab informatica/PROGETTO_FINALE/progetto_finale/build/lib/mnist/CMakeFiles/edit_cache.dir
+/Users/francescovezzani/Desktop/Lab informatica/PROGETTO_FINALE/progetto_finale/build/lib/mnist/CMakeFiles/rebuild_cache.dir
+/Users/francescovezzani/Desktop/Lab informatica/PROGETTO_FINALE/progetto_finale/build/app/CMakeFiles/app.dir
+/Users/francescovezzani/Desktop/Lab informatica/PROGETTO_FINALE/progetto_finale/build/app/CMakeFiles/edit_cache.dir
+/Users/francescovezzani/Desktop/Lab informatica/PROGETTO_FINALE/progetto_finale/build/app/CMakeFiles/rebuild_cache.dir

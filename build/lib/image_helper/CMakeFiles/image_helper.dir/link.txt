@@ -1,0 +1,2 @@
+/Applications/Xcode-14.3.1-Release.Candidate.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar qc libimage_helper.a CMakeFiles/image_helper.dir/src/image_helper.c.o
+/Applications/Xcode-14.3.1-Release.Candidate.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib libimage_helper.a
