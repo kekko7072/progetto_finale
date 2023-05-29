@@ -261,24 +261,6 @@ progetto_finale_IS_TOP_LEVEL:STATIC=ON
 //Value Computed by CMake
 progetto_finale_SOURCE_DIR:STATIC=/Users/francescovezzani/Desktop/Lab informatica/PROGETTO_FINALE/progetto_finale
 
-//Value Computed by CMake
-progetto_finale_app_BINARY_DIR:STATIC=/Users/francescovezzani/Desktop/Lab informatica/PROGETTO_FINALE/progetto_finale/build/app
-
-//Value Computed by CMake
-progetto_finale_app_IS_TOP_LEVEL:STATIC=OFF
-
-//Value Computed by CMake
-progetto_finale_app_SOURCE_DIR:STATIC=/Users/francescovezzani/Desktop/Lab informatica/PROGETTO_FINALE/progetto_finale/app
-
-//Value Computed by CMake
-stack_lib_BINARY_DIR:STATIC=/Users/francescovezzani/Desktop/Lab informatica/PROGETTO_FINALE/progetto_finale/build/lib/image_helper
-
-//Value Computed by CMake
-stack_lib_IS_TOP_LEVEL:STATIC=OFF
-
-//Value Computed by CMake
-stack_lib_SOURCE_DIR:STATIC=/Users/francescovezzani/Desktop/Lab informatica/PROGETTO_FINALE/progetto_finale/lib/image_helper
-
 
 ########################
 # INTERNAL cache entries
