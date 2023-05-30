@@ -3,7 +3,7 @@
 #define image_helper_h
 
 struct immagine {
-	int matrice [28][28];
+	double matrice [784];
 	int label;
 	long int intensity;
 	struct immagine *next;

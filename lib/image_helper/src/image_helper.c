@@ -7,7 +7,7 @@ int pixel_at(int x, int y, const struct immagine *image)
 {
 	if (x <= 28 && y <= 28)
 	{
-		return (image->matrice[x-1][y-1]);
+		return (image->matrice[(x-1+(y-1)*28)]);
 	}
 		return (-1);
 }  //questa funzione funziona
@@ -28,12 +28,9 @@ long int get_intensity (const struct immagine *image)
 {
 	long int intensit = 0;
 	int i, j;
-	for (i = 0; i <= 27; i++) 
+	for (i = 0; i <= 783; i++) 
 	{
-		for (j = 0; j <= 27; j++)
-		{
-			intensit += image->matrice[i][j];
-		}
+		intensit += image->matrice[i];
 	}
 	return (intensit);
 }  // funzione pronta per il testing
@@ -46,7 +43,7 @@ void print (const struct immagine *image)
 	{
 		for (j = 0; j <= 27; j++)
 		{
-			valore = image->matrice[i][j];
+			valore = image->matrice[((i*28)+j)];
 			if (valore <= 64)
 				printf ("  ");
 			if (valore <= 128 && valore > 65)
@@ -69,14 +66,57 @@ long int compute_distance (const struct immagine *image1, const struct immagine 
 	{
 		for (j = 0; j <= 27; j++)
 		{
-			pixel1 = image1->matrice[i][j];
-			pixel2 = image2->matrice[i][j];	
+			pixel1 = image1->matrice[((i*28)+j)];
+			pixel2 = image2->matrice[((i*28)+j)];	
 			differenza = pixel1-pixel2;
 			distanza = distanza +(differenza*differenza);
 		}
 	}
 	return(distanza);
 } //testabile
+int compate_intensity (const struct immagine *image1, const struct immagine *image2){
+	long int x, y;
+
+	x = get_intensity (image1);
+	y = get_intensity (image2);
+
+
+	if (x > y)
+		return 1;
+	else 
+		return 2;
+}
+
+char *compare_image (const struct immagine *image1, const struct immagine *image2){
+	int pixel1, pixel2;
+	int i,j;
+    char vero [10] = "vero";
+    char falso [10] = "falso";
+	
+	char *risultato = malloc (sizeof(char) * 10);
+    if (risultato == NULL){
+		printf ("Errore nella malloc \n");
+		exit (1);
+	}
+	
+	for (i = 0; i <= 27; i++) 
+	{
+		for (j = 0; j <= 27; j++)
+		{
+			pixel1 = image1->matrice[i][j];
+			pixel2 = image2->matrice[i][j];	
+
+            if (pixel1 == pixel2)
+                strcpy (risultato, vero);
+            else {
+                strcpy (risultato, falso);
+                break;
+            }             	
+	}
+    }
+	return risultato;
+}
+
 
 
 
