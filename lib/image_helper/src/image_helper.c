@@ -78,6 +78,49 @@ long int compute_distance (const struct immagine *image1, const struct immagine 
 	return(distanza);
 } //testabile
 
+int compate_intensity (const struct immagine *image1, const struct immagine *image2){
+	long int x, y;
+
+	x = get_intensity (image1);
+	y = get_intensity (image2);
+
+
+	if (x > y)
+		return 1;
+	else 
+		return 2;
+}
+
+char *compare_image (const struct immagine *image1, const struct immagine *image2){
+	int pixel1, pixel2;
+	int i,j;
+    char vero [10] = "vero";
+    char falso [10] = "falso";
+	
+	char *risultato = malloc (sizeof(char) * 10);
+    if (risultato == NULL){
+		printf ("Errore nella malloc \n");
+		exit (1);
+	}
+	
+	for (i = 0; i <= 27; i++) 
+	{
+		for (j = 0; j <= 27; j++)
+		{
+			pixel1 = image1->matrice[i][j];
+			pixel2 = image2->matrice[i][j];	
+
+            if (pixel1 == pixel2)
+                strcpy (risultato, vero);
+            else {
+                strcpy (risultato, falso);
+                break;
+            }             	
+	}
+    }
+	return risultato;
+}
+
 
 
 
@@ -122,5 +165,11 @@ int main()
     print(&picture);
 	long int distanza = compute_distance(&picture, &picture2);
 	printf ("%ld \n", distanza);
+
+	int confronto_intensità = compate_intensity (&picture, &picture2);
+	printf ("confronto intensità = %d \n", confronto_intensità);
+
+	char *confronto_immagini = compare_image (&picture, &picture2);
+	printf ("Esito confronto: %s\n", confronto_immagini);
 }
 */
