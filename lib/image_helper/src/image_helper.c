@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "image_helper.h"
+#include <assert.h>
 
 
 int pixel_at(int x, int y, const struct immagine *image)
@@ -74,12 +75,14 @@ long int compute_distance (const struct immagine *image1, const struct immagine 
 	}
 	return(distanza);
 } //testabile
+
 int compate_intensity (const struct immagine *image1, const struct immagine *image2){
 	long int x, y;
 
 	x = get_intensity (image1);
 	y = get_intensity (image2);
 
+	assert ((x != 0) & (y != 0));
 
 	if (x > y)
 		return 1;
@@ -89,11 +92,11 @@ int compate_intensity (const struct immagine *image1, const struct immagine *ima
 
 char *compare_image (const struct immagine *image1, const struct immagine *image2){
 	int pixel1, pixel2;
-	int i,j;
-    char vero [10] = "vero";
-    char falso [10] = "falso";
+	int i,j,y;
+    char vero [5] = "vero";
+    char falso [6] = "falso";
 	
-	char *risultato = malloc (sizeof(char) * 10);
+	char *risultato = malloc (sizeof(char) * 6);
     if (risultato == NULL){
 		printf ("Errore nella malloc \n");
 		exit (1);
@@ -103,63 +106,23 @@ char *compare_image (const struct immagine *image1, const struct immagine *image
 	{
 		for (j = 0; j <= 27; j++)
 		{
-			pixel1 = image1->matrice[i][j];
-			pixel2 = image2->matrice[i][j];	
+			pixel1 = image1->matrice[((i*28)+j)];
+			pixel2 = image2->matrice[((i*28)+j)];		
 
-            if (pixel1 == pixel2)
+            if (pixel1 == pixel2){
                 strcpy (risultato, vero);
+				y = 0;
+			}	
             else {
                 strcpy (risultato, falso);
-                break;
-            }             	
-	}
+				y = 1;
+            }        	
+      	}
+		if ( y == 1)
+		break; 
     }
 	return risultato;
-}
-
-
-int compate_intensity (const struct immagine *image1, const struct immagine *image2){
-	long int x, y;
-
-	x = get_intensity (image1);
-	y = get_intensity (image2);
-
-
-	if (x > y)
-		return 1;
-	else 
-		return 2;
-}
-
-char *compare_image (const struct immagine *image1, const struct immagine *image2){
-	int pixel1, pixel2;
-	int i,j;
-    char vero [10] = "vero";
-    char falso [10] = "falso";
-	
-	char *risultato = malloc (sizeof(char) * 10);
-    if (risultato == NULL){
-		printf ("Errore nella malloc \n");
-		exit (1);
-	}
-	
-	for (i = 0; i <= 27; i++) 
-	{
-		for (j = 0; j <= 27; j++)
-		{
-			pixel1 = image1->matrice[i][j];
-			pixel2 = image2->matrice[i][j];	
-
-            if (pixel1 == pixel2)
-                strcpy (risultato, vero);
-            else {
-                strcpy (risultato, falso);
-                break;
-            }             	
-	}
-    }
-	return risultato;
-}
+} //Quando la si usa ricordare di fare il free
 
 
 
@@ -211,5 +174,7 @@ int main()
 
 	char *confronto_immagini = compare_image (&picture, &picture2);
 	printf ("Esito confronto: %s\n", confronto_immagini);
+
+	free (confronto_immagini);
 }
 */
