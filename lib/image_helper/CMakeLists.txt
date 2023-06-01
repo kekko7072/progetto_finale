@@ -14,3 +14,6 @@ target_include_directories( image_helper
 
 
 add_library( LII::image_helper ALIAS image_helper )
+
+target_link_libraries( image_helper
+	PRIVATE LII::mnist )
