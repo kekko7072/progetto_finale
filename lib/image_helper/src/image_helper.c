@@ -11,11 +11,13 @@ int pixel_at(int x, int y, const struct immagine *image)
 		return (image->matrice[(x - 1 + (y - 1) * 28)]);
 	}
 	return (-1);
-} // questa funzione funziona
+}
+
 void set_label(int x, struct immagine *image)
 {
 	image->label = x;
-} // questa funzione funziona
+}
+
 int get_label(struct immagine *image)
 {
 	if (image->label > 9 || image->label < 0)
@@ -89,7 +91,7 @@ int compate_intensity(const struct immagine *image1, const struct immagine *imag
 		return 1;
 	else
 		return 2;
-} //To-do: Compara l'intensità di due immagini, restituisce 1 se l'intensità dell'immagine 1 è maggiore dell'immagine 2, restituisce 2 in casoo contrario
+} // To-do: Compara l'intensità di due immagini, restituisce 1 se l'intensità dell'immagine 1 è maggiore dell'immagine 2, restituisce 2 in casoo contrario
 
 char *compare_image(const struct immagine *image1, const struct immagine *image2)
 {

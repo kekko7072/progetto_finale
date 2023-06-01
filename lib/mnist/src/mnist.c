@@ -81,6 +81,21 @@ void load_mnist(void)
     label_char2int(NUM_TEST, test_label_char, test_label);
 }
 
+void load_mnist_test(void)
+{
+    read_mnist_char(TRAIN_IMAGE_TEST, NUM_TRAIN, LEN_INFO_IMAGE, SIZE, train_image_char, info_image);
+    image_char2double(NUM_TRAIN, train_image_char, train_image);
+
+    read_mnist_char(TEST_IMAGE_TEST, NUM_TEST, LEN_INFO_IMAGE, SIZE, test_image_char, info_image);
+    image_char2double(NUM_TEST, test_image_char, test_image);
+
+    read_mnist_char(TRAIN_LABEL_TEST, NUM_TRAIN, LEN_INFO_LABEL, 1, train_label_char, info_label);
+    label_char2int(NUM_TRAIN, train_label_char, train_label);
+
+    read_mnist_char(TEST_LABEL_TEST, NUM_TEST, LEN_INFO_LABEL, 1, test_label_char, info_label);
+    label_char2int(NUM_TEST, test_label_char, test_label);
+}
+
 void print_mnist_pixel(double data_image[][SIZE], int num_data)
 {
     int i, j;
