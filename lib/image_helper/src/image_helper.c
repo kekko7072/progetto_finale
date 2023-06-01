@@ -89,7 +89,7 @@ int compate_intensity(const struct immagine *image1, const struct immagine *imag
 		return 1;
 	else
 		return 2;
-}
+} //To-do: Compara l'intensità di due immagini, restituisce 1 se l'intensità dell'immagine 1 è maggiore dell'immagine 2, restituisce 2 in casoo contrario
 
 char *compare_image(const struct immagine *image1, const struct immagine *image2)
 {
@@ -128,6 +128,7 @@ char *compare_image(const struct immagine *image1, const struct immagine *image2
 	}
 	return risultato;
 } // Quando la si usa ricordare di fare il free
+  // To-do: Confronta due immagini, restituisce vero nel caso in cui tutti i pixel delle due immagini siano uguali, restituisce falso in caso contrario
 
 /*
 int main()
