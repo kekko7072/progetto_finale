@@ -1,3 +1,15 @@
+/*
+--------------------------------------------------
+INSTRUCTIOSN TO COMPILE AND RUN TEST:
+
++ TO COMPILE TEST USE:
+	cd build && cmake .. && make image_helper_lib_test
+
++ TO RUN TEST USE:
+	./build/image_helper_lib_test
+--------------------------------------------------
+*/
+
 #include "unity.h"
 
 #include "image_helper.h"
@@ -59,3 +71,12 @@ int main(void)
 
 	return UNITY_END();
 }
+
+/*
+INSTRUCTIOSN TO COMPILE AND RUN TEST:
++ TO COMPILE TEST USE:
+	cd build && cmake .. && make image_helper_lib_test
+
++ TO RUN TEST USE:
+	./build/image_helper_lib_test
+*/

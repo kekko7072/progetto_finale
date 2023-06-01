@@ -1,5 +1,16 @@
-#include "unity.h"
+/*
+--------------------------------------------------
+INSTRUCTIOSN TO COMPILE AND RUN TEST:
 
++ TO COMPILE TEST USE:
+	cd build && cmake .. && make mnist_lib_test
+
++ TO RUN TEST USE:
+	./build/mnist_lib_test
+--------------------------------------------------
+*/
+
+#include "unity.h"
 #include "classify.h"
 
 int main(void)

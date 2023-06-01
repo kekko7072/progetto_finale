@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "image_helper.h": "c",
-        "string.h": "c"
+        "string.h": "c",
+        "mnist.h": "c"
     }
 }
