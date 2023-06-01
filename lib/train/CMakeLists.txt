@@ -14,3 +14,10 @@ target_include_directories( train
 
 
 add_library( LII::train ALIAS train )
+
+target_link_libraries( train
+	PRIVATE LII::mnist)
+
+target_link_libraries( train
+        PRIVATE LII::image_helper)
+
