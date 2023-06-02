@@ -10,16 +10,18 @@
 int main()
 {
     // TODO MAIN CODE OF EXECUTION HERE
-struct immagine image;
-struct immagine *pointer;
+struct immagine *head = NULL;
 int label;
-image.next=train;
-pointer = image.next;
-print(&image);
-label=get_label(&image);
+train(head);
+print(head);
+label=get_label(head);
 printf("%d \n", label);
-print(pointer);
-label=get_label(pointer);
+//head->next = head;
+print(head);
+label=get_label(head);
 printf("%d \n", label);
+for(int i = 0; i < 60000; i++){
+	head = rimuovi(head);
+}
     return 0;
 }

@@ -158,5 +158,5 @@ void save_mnist_pgm(double data_image[][SIZE], int index)
         }
     }
 
-    save_image(n, "");
+    //save_image(n, "");
 }
