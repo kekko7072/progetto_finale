@@ -19,12 +19,6 @@ https://github.com/takafumihoriuchi/MNIST_for_C
 #define TEST_IMAGE "../../data/t10k-images.idx3-ubyte"
 #define TEST_LABEL "../../data/t10k-labels.idx1-ubyte"
 
-// set appropriate path for data in testings
-#define TRAIN_IMAGE_TEST "../../../data/train-images.idx3-ubyte"
-#define TRAIN_LABEL_TEST "../../../data/train-labels.idx1-ubyte"
-#define TEST_IMAGE_TEST "../../../data/t10k-images.idx3-ubyte"
-#define TEST_LABEL_TEST "../../../data/t10k-labels.idx1-ubyte"
-
 #define SIZE 784 // 28*28
 #define NUM_TRAIN 60000
 #define NUM_TEST 10000
@@ -56,13 +50,11 @@ void FlipLong(unsigned char *ptr);
 
 void read_mnist_char(char *file_path, int num_data, int len_info, int arr_n, unsigned char data_char[][arr_n], int info_arr[]);
 
-void image_char2double(int num_data, unsigned char data_image_char[][SIZE], double data_image[][SIZE]);
+void image_char2double(int num_data, unsigned char data_image_char[][SIZE], double data_image[SIZE]); // CUSTOM FUNCTION
 
 void label_char2int(int num_data, unsigned char data_label_char[][1], int data_label[]);
 
 void load_mnist(void);
-
-void load_mnist_test(void);
 
 void print_mnist_pixel(double data_image[][SIZE], int num_data);
 
@@ -75,4 +67,5 @@ void save_image(int n, char name[]);
 // store train_image[][] into image[][][]
 void save_mnist_pgm(double data_image[][SIZE], int index);
 
+// void image_chartodouble(int num_data, unsigned char data_image_char[][SIZE], double data_image[SIZE])
 #endif

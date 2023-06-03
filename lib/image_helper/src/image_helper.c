@@ -25,19 +25,21 @@ int get_label(struct immagine *image)
 		return (-1);
 	}
 	return (image->label);
-} // pronta per il testing
+}
 
 long int get_intensity(const struct immagine *image)
 {
-	long int intensit = 0;
-	int i, j;
-	for (i = 0; i <= 783; i++)
+	long int intensity = 0;
+	for (int i = 0; i <= 783; i++)
 	{
-		intensit += image->matrice[i];
+		// printf("%f\t", image->matrice[i]);
+		intensity += image->matrice[i];
 	}
-	return (intensit);
-} // funzione pronta per il testing
+	return intensity;
+}
 
+/*
+TODO FIXARE PRINT CHE NON RITORNA VALORI CORRETTI */
 void print(const struct immagine *image)
 {
 	int i, j;
@@ -47,6 +49,9 @@ void print(const struct immagine *image)
 		for (j = 0; j <= 27; j++)
 		{
 			valore = image->matrice[((i * 28) + j)];
+
+			// TODO CONTROLLARE QUESTO VALORE
+
 			if (valore <= 64)
 				printf("  ");
 			if (valore <= 128 && valore > 65)
@@ -59,7 +64,8 @@ void print(const struct immagine *image)
 		}
 		printf("\n");
 	}
-} // testabile
+}
+
 long int compute_distance(const struct immagine *image1, const struct immagine *image2)
 {
 	long int distanza = 0;

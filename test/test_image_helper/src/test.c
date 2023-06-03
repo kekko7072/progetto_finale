@@ -3,10 +3,10 @@
 INSTRUCTIOSN TO COMPILE AND RUN TEST:
 
 + TO COMPILE TEST USE:
-	cd build && cmake .. && make image_helper_lib_test
+	cd build && cmake .. && cd test && make image_helper_lib_test
 
 + TO RUN TEST USE:
-	./build/image_helper_lib_test
+	./test_image_helper/image_helper_lib_test
 --------------------------------------------------
 */
 
@@ -14,41 +14,14 @@ INSTRUCTIOSN TO COMPILE AND RUN TEST:
 
 #include "image_helper.h"
 #include "mnist.h"
-
-void test_pixel_at(void)
-{
-	// TEST x,y = 29,29
-	TEST_ASSERT_EQUAL_INT_MESSAGE(-1, pixel_at(29, 29, test_image[0]), "pixel_at(29, 29, test_image[0])");
-
-	// TEST x,y = 0,0
-	TEST_ASSERT_EQUAL_FLOAT_MESSAGE(0.0, pixel_at(0, 0, test_image[0]), "pixel_at(1, 1, test_image[0])");
-}
-
-void test_set_label(void)
-{
-	// Print label of first image of test
-	// printf("Label %d ", test_label[0]);
-
-	// Create image
-	struct immagine *image_testing = malloc(sizeof(struct immagine));
-	image_testing->next = NULL;
-	image_testing->label = test_label[0];
-	memcpy(image_testing->matrice, test_image[0], sizeof(double) * 784);
-
-	// TEST x,y = 29,29
-	int new_label = 3;
-	set_label(3, image_testing);
-	TEST_ASSERT_EQUAL_INT_MESSAGE(image_testing->label, new_label, "new label error");
-
-	free(image_testing);
-}
+#include "test_functions.c"
 
 void setUp(void)
 {
 	printf("\n\n");
-	printf("LOAD MNIST\n");
-	//  Call to store mnist in array
-	load_mnist_test();
+	printf("Run this test from dir \"progetto_finale/build/test\"\n");
+	// Call to store mnist in array
+	load_mnist();
 
 	// Print first image of test
 	//  print pixels of first data in test dataset
@@ -68,15 +41,12 @@ int main(void)
 
 	RUN_TEST(test_pixel_at);
 	RUN_TEST(test_set_label);
+	RUN_TEST(test_get_label);
+	RUN_TEST(test_get_intensity);
+	RUN_TEST(test_print);
+	RUN_TEST(test_compute_distance);
+	RUN_TEST(test_compate_intensity);
+	RUN_TEST(test_compare_image);
 
 	return UNITY_END();
 }
-
-/*
-INSTRUCTIOSN TO COMPILE AND RUN TEST:
-+ TO COMPILE TEST USE:
-	cd build && cmake .. && make image_helper_lib_test
-
-+ TO RUN TEST USE:
-	./build/image_helper_lib_test
-*/

@@ -51,12 +51,13 @@ void read_mnist_char(char *file_path, int num_data, int len_info, int arr_n, uns
     close(fd);
 }
 
-void image_char2double(int num_data, unsigned char data_image_char[][SIZE], double data_image[][SIZE])
+void image_char2double(int num_data, unsigned char data_image_char[][SIZE], double data_image[SIZE])
 {
     int i, j;
-    for (i = 0; i < num_data; i++)
-        for (j = 0; j < SIZE; j++)
-            data_image[i][j] = (double)data_image_char[i][j] / 255.0;
+    // for (i = 0; i < num_data; i++)
+    for (j = 0; j < SIZE; j++)
+        data_image[j] = (double)data_image_char[num_data][j]; // 255.0;
+                                                              // CUSTOM FUNCTION
 }
 
 void label_char2int(int num_data, unsigned char data_label_char[][1], int data_label[])
@@ -78,21 +79,6 @@ void load_mnist(void)
     label_char2int(NUM_TRAIN, train_label_char, train_label);
 
     read_mnist_char(TEST_LABEL, NUM_TEST, LEN_INFO_LABEL, 1, test_label_char, info_label);
-    label_char2int(NUM_TEST, test_label_char, test_label);
-}
-
-void load_mnist_test(void)
-{
-    read_mnist_char(TRAIN_IMAGE_TEST, NUM_TRAIN, LEN_INFO_IMAGE, SIZE, train_image_char, info_image);
-    image_char2double(NUM_TRAIN, train_image_char, train_image);
-
-    read_mnist_char(TEST_IMAGE_TEST, NUM_TEST, LEN_INFO_IMAGE, SIZE, test_image_char, info_image);
-    image_char2double(NUM_TEST, test_image_char, test_image);
-
-    read_mnist_char(TRAIN_LABEL_TEST, NUM_TRAIN, LEN_INFO_LABEL, 1, train_label_char, info_label);
-    label_char2int(NUM_TRAIN, train_label_char, train_label);
-
-    read_mnist_char(TEST_LABEL_TEST, NUM_TEST, LEN_INFO_LABEL, 1, test_label_char, info_label);
     label_char2int(NUM_TEST, test_label_char, test_label);
 }
 

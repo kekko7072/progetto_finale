@@ -3,10 +3,10 @@
 INSTRUCTIOSN TO COMPILE AND RUN TEST:
 
 + TO COMPILE TEST USE:
-	cd build && cmake .. && make mnist_lib_test
+	cd build && cmake .. && cd test && make train_lib_test
 
 + TO RUN TEST USE:
-	./build/mnist_lib_test
+	./test_image_helper/train_lib_test
 --------------------------------------------------
 */
 #include "unity.h"
