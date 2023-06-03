@@ -5,70 +5,48 @@
 #include "train.h"
 #include "classify.h"
 
-struct immagine *classify( struct immagine *image, struct immagine *list_images){
-	 
-  long int mindistance=compute_distance(image,list_images ); //calcolo la distanza tra un'immagine della lista e quella da analizzare
-  struct immagine *corresponding_image; //creo una variabile che conterrà l'indirizzo dell'immagine più vicina a quella da analizzare      
-  
-   struct immagine *p; //variabile temporanea da inserire nel ciclo for
-  for(p = list_images; p!=NULL; p=p->next) //ricerca iterativa
-   {long int distance;     
-	distance=compute_distance(image,list_images );
-    
-  if(distance<mindistance)  //caso in cui trovo un'immagine più affine a quella da analizzare
-  {
-   mindistance=distance;      //registro la nuova distanza minima
-   corresponding_image=list_images;}//salvo l'indirizzo
-  }
-   
-   return corresponding_image;  //ritorno l'immagine della lista più vicina
-}
-
-struct immagine *aggiungi(struct immagine *image, int index, int label)
-{
-	struct immagine *nuovaimmagine;
-	nuovaimmagine = malloc(sizeof(struct immagine));
-	if (nuovaimmagine == NULL)
-	{
-		printf("ERRORE IN FASE DI ALLOCAZIONE DELLA MEMORIA \n");
-		exit(-1);
-	}
-	save_mnist_pgm(&nuovaimmagine->matrice, index);
-	set_label(label, nuovaimmagine);
-	nuovaimmagine->intensity = get_intensity(nuovaimmagine);
-	nuovaimmagine->next = image;
-	return (nuovaimmagine);
-}
 
 
 
 
 
-int main()
+
+int main(void)
 {
  
+ //numero immagine contenuta nel database test
  
- struct immagine *imagetest;
- struct immagine *immagine_simile;
+ struct immagine imagetest;  //immagine da confrontare
+ int matching_number;  //risultato atteso
+ struct immagine *head = NULL;  //testa lista concatenata  //matrice dove salvare il conttenuto dell'immagine test
+ int tlabels[10000];
+ double tmatrix[784];
+  struct immagine *list;  
  
+ list=train(head);
+
  
 
+ load_mnist();  //OK
+ label_char2int(10000, test_label_char, tlabels); //OK
+ printf("\n%d\n",tlabels[9]);
+ set_label(tlabels[9], &imagetest);
 
-struct immagine *head = NULL;
-	int i = 0;
-	int labels[60000];
-	load_mnist();
-	label_char2int(60000, train_label_char, labels);
-	for (i = 0; i < 60000; i++)
-	{
-		head = aggiungi(head, i, labels[i]);
-	}
  
-  imagetest=head; //provo ad utilizzare come immagine da analizzare quella a inizio lista
+image_char2double(9, test_image_char, tmatrix); 
+ for(int y = 0; y < 28; y++){
+		for(int j = 0; j < 28; j++){
+	    imagetest.matrice[(y*28+j)] = tmatrix[(y*28+j)]; //OK
+			}}
+		
+
+imagetest.intensity = get_intensity(&imagetest);  //OK
+
+printf("\nQuesto è il label che vorrei ottenere: %d\n",imagetest.label);//OK
 
 
-immagine_simile=classify(imagetest,head);
-printf("questo è il label dell'immagine simile %d",immagine_simile->label);
+matching_number=classify(&imagetest,list); 
+printf("\nquesto è il label dell'immagine simile %d\n",matching_number); 
 
 return 0;
 }

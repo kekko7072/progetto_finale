@@ -51,12 +51,14 @@ void read_mnist_char(char *file_path, int num_data, int len_info, int arr_n, uns
     close(fd);
 }
 
-void image_char2double(int num_data, unsigned char data_image_char[][SIZE], double data_image[][SIZE])
+void image_char2double(int num_data, unsigned char data_image_char[][SIZE], double data_image[SIZE])
 {
     int i, j;
-    for (i = 0; i < num_data; i++)
+    //for (i = 0; i < num_data; i++)
         for (j = 0; j < SIZE; j++)
-            data_image[i][j] = (double)data_image_char[i][j] / 255.0;
+            data_image[j] = (double)data_image_char[num_data][j]; // 255.0;
+		//CUSTOM FUNCTION
+
 }
 
 void label_char2int(int num_data, unsigned char data_label_char[][1], int data_label[])

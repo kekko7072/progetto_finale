@@ -19,7 +19,7 @@ long int get_intensity (const struct immagine *image);
 
 void print (const struct immagine *image);
 
-long int compute_distance (const struct immagine *image1, const struct immagine *image2);
+long int compute_distance (const struct immagine *image1, const struct immagine *image2); //tolto asterisco da image1
 
 char *compare_image (const struct immagine *image1, const struct immagine *image2);
 

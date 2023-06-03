@@ -50,7 +50,7 @@ void FlipLong(unsigned char *ptr);
 
 void read_mnist_char(char *file_path, int num_data, int len_info, int arr_n, unsigned char data_char[][arr_n], int info_arr[]);
 
-void image_char2double(int num_data, unsigned char data_image_char[][SIZE], double data_image[][SIZE]);
+void image_char2double(int num_data, unsigned char data_image_char[][SIZE], double data_image[SIZE]);
 
 void label_char2int(int num_data, unsigned char data_label_char[][1], int data_label[]);
 

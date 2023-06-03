@@ -73,7 +73,7 @@ long int compute_distance(const struct immagine *image1, const struct immagine *
 			distanza = distanza + (differenza * differenza);
 		}
 	}
-	return (distanza);
+	return (distanza);  
 } // testabile
 
 int compate_intensity(const struct immagine *image1, const struct immagine *image2)
