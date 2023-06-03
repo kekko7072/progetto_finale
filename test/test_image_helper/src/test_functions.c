@@ -93,7 +93,23 @@ void test_compute_distance(void)
 
 void test_compate_intensity(void)
 {
-	/// TODO COMPARE INTESITY
+	// Create image 1
+	struct immagine *image_testing1 = malloc(sizeof(struct immagine));
+	image_testing1->next = NULL;
+	image_testing1->label = test_label[0];
+	memcpy(image_testing1->matrice, test_image[0], sizeof(double) * 784);
+	printf("intensity image 1 = %ld \n", get_intensity(image_testing1));
+
+	// Create image 2
+	// TODO ISSUE ON TRAIN DATASET THAT RETURNS 0
+	struct immagine *image_testing2 = malloc(sizeof(struct immagine));
+	image_testing2->next = NULL;
+	image_testing2->label = test_label[1];
+	memcpy(image_testing2->matrice, test_image[1], sizeof(double) * 784);
+	printf("intensity image 2 = %ld \n", get_intensity(image_testing2));
+
+	int confronto_intensità = compate_intensity(image_testing1, image_testing2);
+	printf("confronto intensità = %d \n", confronto_intensità);
 }
 
 void test_compare_image(void)
