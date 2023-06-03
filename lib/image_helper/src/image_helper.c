@@ -82,7 +82,7 @@ long int compute_distance(const struct immagine *image1, const struct immagine *
 		}
 	}
 	return (distanza);
-} // testabile
+}
 
 int compate_intensity(const struct immagine *image1, const struct immagine *image2)
 {
@@ -135,50 +135,4 @@ char *compare_image(const struct immagine *image1, const struct immagine *image2
 			break;
 	}
 	return risultato;
-} // Quando la si usa ricordare di fare il free
-  // To-do: Confronta due immagini, restituisce vero nel caso in cui tutti i pixel delle due immagini siano uguali, restituisce falso in caso contrario
-
-/*
-int main()
-{
-
-	struct immagine picture, picture2;
-	picture.matrice[11][11] = 26;
-	int valore = pixel_at(33, 33, &picture);
-	printf ("%d \n", valore);
-	set_label (4, &picture);
-	printf("%d \n", picture.label);
-	valore = get_label (&picture);
-	printf ("%d \n", valore);
-	int i,j;
-	for (i = 0; i <= 27; i++)
-	{
-		//k += 10;
-		for (j = 0; j <= 27; j++)
-		{
-			picture.matrice[i][j] = 3;
-		}
-	}
-	for (i = 0; i <= 27; i++)
-	{
-		//k += 10;
-		for (j = 0; j <= 27; j++)
-		{
-			picture2.matrice[i][j] = 2;
-		}
-	}
-	long int intensit = get_intensity(&picture);
-	printf ("%ld \n", intensit);
-	print(&picture);
-	long int distanza = compute_distance(&picture, &picture2);
-	printf ("%ld \n", distanza);
-
-	int confronto_intensità = compate_intensity (&picture, &picture2);
-	printf ("confronto intensità = %d \n", confronto_intensità);
-
-	char *confronto_immagini = compare_image (&picture, &picture2);
-	printf ("Esito confronto: %s\n", confronto_immagini);
-
-	free (confronto_immagini);
 }
-*/
