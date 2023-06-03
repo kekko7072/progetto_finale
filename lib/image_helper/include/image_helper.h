@@ -9,7 +9,7 @@ struct immagine {
 	struct immagine *next;
 };
 
-int pixel_at(int x, int y, const struct immagine *image);
+double pixel_at(int x, int y, const struct immagine *image);
 
 void set_label(int x, struct immagine *image);
 
