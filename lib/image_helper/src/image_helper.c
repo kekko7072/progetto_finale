@@ -11,11 +11,13 @@ double pixel_at(int x, int y, const struct immagine *image)
 		return (image->matrice[(x - 1 + (y - 1) * 28)]);
 	}
 	return (-1);
-} // questa funzione funziona
+}
+
 void set_label(int x, struct immagine *image)
 {
 	image->label = x;
-} // questa funzione funziona
+}
+
 int get_label(struct immagine *image)
 {
 	if (image->label > 9 || image->label < 0)
@@ -23,19 +25,21 @@ int get_label(struct immagine *image)
 		return (-1);
 	}
 	return (image->label);
-} // pronta per il testing
+}
 
 long int get_intensity(const struct immagine *image)
 {
-	long int intensit = 0;
-	int i, j;
-	for (i = 0; i <= 783; i++)
+	long int intensity = 0;
+	for (int i = 0; i <= 783; i++)
 	{
-		intensit += image->matrice[i];
+		// printf("%f\t", image->matrice[i]);
+		intensity += image->matrice[i];
 	}
-	return (intensit);
-} // funzione pronta per il testing
+	return intensity;
+}
 
+/*
+TODO FIXARE PRINT CHE NON RITORNA VALORI CORRETTI */
 void print(const struct immagine *image)
 {
 	int i, j;
@@ -45,6 +49,9 @@ void print(const struct immagine *image)
 		for (j = 0; j <= 27; j++)
 		{
 			valore = image->matrice[((i * 28) + j)];
+
+			// TODO CONTROLLARE QUESTO VALORE
+
 			if (valore <= 64)
 				printf(" ");
 			if (valore <= 128 && valore > 65)
@@ -57,7 +64,8 @@ void print(const struct immagine *image)
 		}
 		printf("\n");
 	}
-} // testabile
+}
+
 long int compute_distance(const struct immagine *image1, const struct immagine *image2)
 {
 	long int distanza = 0;
@@ -89,7 +97,7 @@ int compate_intensity(const struct immagine *image1, const struct immagine *imag
 		return 1;
 	else
 		return 2;
-}
+} // To-do: Compara l'intensità di due immagini, restituisce 1 se l'intensità dell'immagine 1 è maggiore dell'immagine 2, restituisce 2 in casoo contrario
 
 char *compare_image(const struct immagine *image1, const struct immagine *image2)
 {
@@ -128,6 +136,7 @@ char *compare_image(const struct immagine *image1, const struct immagine *image2
 	}
 	return risultato;
 } // Quando la si usa ricordare di fare il free
+  // To-do: Confronta due immagini, restituisce vero nel caso in cui tutti i pixel delle due immagini siano uguali, restituisce falso in caso contrario
 
 /*
 int main()

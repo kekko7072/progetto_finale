@@ -14,3 +14,6 @@ target_link_libraries( image_helper_lib_test
 )
 
 add_test(image_helper_lib_test image_helper_lib_test)
+
+target_link_libraries( image_helper_lib_test
+	PRIVATE LII::mnist )

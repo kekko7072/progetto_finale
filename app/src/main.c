@@ -10,8 +10,9 @@
 int main()
 {
     // TODO MAIN CODE OF EXECUTION HERE
+
 struct immagine *head = NULL;
-struct immagine *testa = NULL;
+struct immagine *testa = NULL; 
 int label;
 double pixel;
 head = train(head);
@@ -32,5 +33,6 @@ printf("label:%d \n", label);
 print(head);
 
 	rimuovi(testa);
+
     return 0;
 }
