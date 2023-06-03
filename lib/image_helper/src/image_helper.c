@@ -4,7 +4,7 @@
 #include <assert.h>
 #include "string.h"
 
-int pixel_at(int x, int y, const struct immagine *image)
+double pixel_at(int x, int y, const struct immagine *image)
 {
 	if (x <= 28 && y <= 28)
 	{
@@ -53,14 +53,14 @@ void print(const struct immagine *image)
 			// TODO CONTROLLARE QUESTO VALORE
 
 			if (valore <= 64)
-				printf("  ");
+				printf(" ");
 			if (valore <= 128 && valore > 65)
-				printf("--");
+				printf("-");
 			if (valore <= 192 && valore > 129)
-				printf("==");
+				printf("=");
 			if (valore >= 193)
-				printf("XX");
-			printf("  ");
+				printf("X");
+			printf(" ");
 		}
 		printf("\n");
 	}

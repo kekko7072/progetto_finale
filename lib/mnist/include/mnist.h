@@ -50,7 +50,9 @@ void FlipLong(unsigned char *ptr);
 
 void read_mnist_char(char *file_path, int num_data, int len_info, int arr_n, unsigned char data_char[][arr_n], int info_arr[]);
 
-void image_char2double(int num_data, unsigned char data_image_char[][SIZE], double data_image[SIZE]); // CUSTOM FUNCTION
+
+void image_char2double(int num_data, unsigned char data_image_char[][SIZE], double data_image[SIZE]); //CUSTOM FUNCTION
+
 
 void label_char2int(int num_data, unsigned char data_label_char[][1], int data_label[]);
 
@@ -67,5 +69,7 @@ void save_image(int n, char name[]);
 // store train_image[][] into image[][][]
 void save_mnist_pgm(double data_image[][SIZE], int index);
 
-// void image_chartodouble(int num_data, unsigned char data_image_char[][SIZE], double data_image[SIZE])
+
+//void image_chartodouble(int num_data, unsigned char data_image_char[][SIZE], double data_image[SIZE])
+
 #endif

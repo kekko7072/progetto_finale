@@ -13,7 +13,8 @@ struct immagine
 /*
 	This function return the value of the pixel at the position (x,y) of the image.
 */
-int pixel_at(int x, int y, const struct immagine *image);
+double pixel_at(int x, int y, const struct immagine *image);
+
 
 /*
 	This function set the value of the label with the value x.

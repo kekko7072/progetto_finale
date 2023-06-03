@@ -10,16 +10,29 @@
 int main()
 {
     // TODO MAIN CODE OF EXECUTION HERE
-struct immagine image;
-struct immagine *pointer;
+
+struct immagine *head = NULL;
+struct immagine *testa = NULL; 
 int label;
-image.next=train;
-pointer = image.next;
-print(&image);
-label=get_label(&image);
-printf("%d \n", label);
-print(pointer);
-label=get_label(pointer);
-printf("%d \n", label);
+double pixel;
+head = train(head);
+testa = head;
+pixel = pixel_at(10,10,head);
+printf("pixel: %f \n",pixel);
+printf("intensit: %ld \n",head->intensity);
+label=get_label(head);
+printf("label:%d \n", label);
+print(head);
+for (int j = 0; j < 59999; j++)
+	head = head->next;
+pixel = pixel_at(10,10,head);
+printf("pixel: %f \n",pixel);
+printf("intensit: %ld \n",head->intensity);
+label=get_label(head);
+printf("label:%d \n", label);
+print(head);
+
+	rimuovi(testa);
+
     return 0;
 }
