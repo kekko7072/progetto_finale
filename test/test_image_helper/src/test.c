@@ -45,7 +45,7 @@ int main(void)
 	RUN_TEST(test_get_intensity);
 	RUN_TEST(test_print);
 	RUN_TEST(test_compute_distance);
-	RUN_TEST(test_compate_intensity);
+	RUN_TEST(test_compare_intensity);
 	RUN_TEST(test_compare_image);
 
 	return UNITY_END();
