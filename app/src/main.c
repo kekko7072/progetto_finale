@@ -6,33 +6,31 @@
 #include "train.h"
 #include "classify.h"
 
-
 int main()
 {
-    // TODO MAIN CODE OF EXECUTION HERE
 
-struct immagine *head = NULL;
-struct immagine *testa = NULL; 
-int label;
-double pixel;
-head = train(head);
-testa = head;
-pixel = pixel_at(10,10,head);
-printf("pixel: %f \n",pixel);
-printf("intensit: %ld \n",head->intensity);
-label=get_label(head);
-printf("label:%d \n", label);
-print(head);
-for (int j = 0; j < 59999; j++)
-	head = head->next;
-pixel = pixel_at(10,10,head);
-printf("pixel: %f \n",pixel);
-printf("intensit: %ld \n",head->intensity);
-label=get_label(head);
-printf("label:%d \n", label);
-print(head);
+    struct immagine *head = NULL;
+    struct immagine *testa = NULL;
+    int label;
+    double pixel;
+    head = train(head);
+    testa = head;
+    pixel = pixel_at(10, 10, head);
+    printf("pixel: %f \n", pixel);
+    printf("intensit: %ld \n", head->intensity);
+    label = get_label(head);
+    printf("label:%d \n", label);
+    print(head);
+    for (int j = 0; j < 59999; j++)
+        head = head->next;
+    pixel = pixel_at(10, 10, head);
+    printf("pixel: %f \n", pixel);
+    printf("intensit: %ld \n", head->intensity);
+    label = get_label(head);
+    printf("label:%d \n", label);
+    print(head);
 
-	rimuovi(testa);
+    rimuovi(testa);
 
     return 0;
 }

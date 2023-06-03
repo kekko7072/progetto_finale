@@ -6,7 +6,7 @@ INSTRUCTIOSN TO COMPILE AND RUN TEST:
 	cd build && cmake .. && cd test && make train_lib_test
 
 + TO RUN TEST USE:
-	./test_image_helper/train_lib_test
+	./test_train/train_lib_test
 --------------------------------------------------
 */
 #include "unity.h"

@@ -9,7 +9,6 @@ INSTRUCTIOSN TO COMPILE AND RUN TEST:
 	./test_image_helper/image_helper_lib_test
 --------------------------------------------------
 */
-
 #include "unity.h"
 
 #include "image_helper.h"

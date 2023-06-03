@@ -6,17 +6,18 @@ INSTRUCTIOSN TO COMPILE AND RUN TEST:
 	cd build && cmake .. && cd test && make mnist_lib_test
 
 + TO RUN TEST USE:
-	./test_image_helper/mnist_lib_test
+	./test_mnist/mnist_lib_test
 --------------------------------------------------
 */
 #include "unity.h"
+
 #include "mnist.h"
+#include "test_functions.c"
 
 int main(void)
 {
 	UNITY_BEGIN();
-
-	// TODO write tests
+	RUN_TEST(test_example);
 
 	return UNITY_END();
 }

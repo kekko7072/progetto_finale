@@ -48,28 +48,47 @@ int test_label[NUM_TEST];
 
 void FlipLong(unsigned char *ptr);
 
+/*
+    Read MNIST data from file_path
+*/
 void read_mnist_char(char *file_path, int num_data, int len_info, int arr_n, unsigned char data_char[][arr_n], int info_arr[]);
 
+/*
+    Convert unsigned char to double
+*/
+void image_char2double(int num_data, unsigned char data_image_char[][SIZE], double data_image[SIZE]); // CUSTOM FUNCTION
 
-void image_char2double(int num_data, unsigned char data_image_char[][SIZE], double data_image[SIZE]); //CUSTOM FUNCTION
-
-
+/*
+    Convert unsigned char to int
+*/
 void label_char2int(int num_data, unsigned char data_label_char[][1], int data_label[]);
 
+/*
+    Load MNIST data, store mnist in array
+*/
 void load_mnist(void);
 
+/*
+    Print MNIST data
+*/
 void print_mnist_pixel(double data_image[][SIZE], int num_data);
 
+/*
+    Print MNIST label
+*/
 void print_mnist_label(int data_label[], int num_data);
 
-// name: path for saving image (ex: "./images/sample.pgm")
+/*
+    Save image as pgm file
+    name: path for saving image (ex: "./images/sample.pgm")
+
 void save_image(int n, char name[]);
 
-// save mnist image (call for each image)
-// store train_image[][] into image[][][]
+
+ save mnist image (call for each image)
+ store train_image[][] into image[][][]
+
 void save_mnist_pgm(double data_image[][SIZE], int index);
-
-
-//void image_chartodouble(int num_data, unsigned char data_image_char[][SIZE], double data_image[SIZE])
+*/
 
 #endif

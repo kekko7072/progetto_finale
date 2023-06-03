@@ -9,8 +9,8 @@ INSTRUCTIOSN TO COMPILE AND RUN TEST:
 	./test_image_helper/classify_lib_test
 --------------------------------------------------
 */
-
 #include "unity.h"
+
 #include "classify.h"
 
 int main(void)
