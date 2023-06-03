@@ -11,12 +11,13 @@ INSTRUCTIOSN TO COMPILE AND RUN TEST:
 */
 #include "unity.h"
 #include "train.h"
+#include "image_helper.h"
+#include "test_functions.c"
 
 int main(void)
 {
 	UNITY_BEGIN();
-
-	// TODO write tests
+	RUN_TEST(test_example);
 
 	return UNITY_END();
 }
