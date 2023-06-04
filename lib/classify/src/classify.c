@@ -27,3 +27,37 @@ int classify(const struct immagine *image, struct immagine *list_images, struct 
   
    return corresponding_label;  //ritorno l'immagine della lista più vicina
 }
+
+
+
+void testchoice(struct immagine *testimage){
+
+int numbertest=-1;
+ int tlabels[10000];
+ double tmatrix[784];
+ char string_numbertest[10000];
+
+
+while(numbertest>9999 || numbertest<0)
+{  
+  printf("\ndigit a number from 0 to 9999: ");
+	scanf("%s", string_numbertest);
+  numbertest = atoi(string_numbertest);
+ 
+ if(numbertest>9999 || numbertest<0)
+ {printf("\nthe chosen number is outside the asked range\n");}}
+
+load_mnist();  
+label_char2int(10000, test_label_char, tlabels); 
+printf("\n%d\n",tlabels[numbertest]);
+set_label(tlabels[numbertest], testimage);
+
+ 
+image_char2double(numbertest, test_image_char, tmatrix); 
+for(int y = 0; y < 28; y++){
+	for(int j = 0; j < 28; j++){
+	    testimage->matrice[(y*28+j)] = tmatrix[(y*28+j)]; 
+			}}
+		
+testimage->intensity = get_intensity(testimage);  
+}
