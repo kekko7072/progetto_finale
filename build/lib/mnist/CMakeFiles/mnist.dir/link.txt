@@ -1,0 +1,1 @@
+/usr/bin/cc -fPIC -shared -Wl,-soname,libmnist.so -o libmnist.so CMakeFiles/mnist.dir/src/mnist.c.o 

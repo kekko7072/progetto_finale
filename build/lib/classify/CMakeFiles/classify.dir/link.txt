@@ -1,0 +1,1 @@
+/usr/bin/cc -fPIC -shared -Wl,-soname,libclassify.so -o libclassify.so CMakeFiles/classify.dir/src/classify.c.o  -Wl,-rpath,/home/leonardoparise/progetto5/progetto_finale/build/lib/mnist ../image_helper/libimage_helper.a ../mnist/libmnist.so 

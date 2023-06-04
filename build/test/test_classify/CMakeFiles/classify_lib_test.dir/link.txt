@@ -1,0 +1,1 @@
+/usr/bin/cc CMakeFiles/classify_lib_test.dir/src/test.c.o -o classify_lib_test  -Wl,-rpath,/home/leonardoparise/progetto5/progetto_finale/build/lib/classify:/home/leonardoparise/progetto5/progetto_finale/build/lib/mnist ../../lib/classify/libclassify.so ../../external/Unity/libUnity.a -Wl,-rpath-link,/home/leonardoparise/progetto5/progetto_finale/build/lib/mnist 
