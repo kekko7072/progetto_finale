@@ -14,3 +14,6 @@ target_link_libraries( train_lib_test
 )
 
 add_test(train_lib_test train_lib_test)
+
+target_link_libraries( train_lib_test
+	PRIVATE LII::image_helper )
