@@ -5,7 +5,7 @@
 #include "image_helper.h"
 #include "mnist.h"
 
-struct immagine *train_ordinato (struct immagine *head)
+struct immagine *train_ordinato (struct immagine *immagine)
 {
 
     struct immagine *nuovo_elemento,*prev, *cur;
@@ -33,87 +33,72 @@ struct immagine *train_ordinato (struct immagine *head)
 			}
 		}
 		nuovo_elemento->intensity = get_intensity(nuovo_elemento);
-		nuovo_elemento->next = head;
-		head = nuovo_elemento;
+		nuovo_elemento->next = NULL;
+
+        if (immagine == NULL){
+            return nuovo_elemento;
+        }
+        struct immagine *tmp = immagine;
+        while (tmp->next != NULL){
+            tmp = tmp->next;
+        }
+
+        tmp->next = NULL;
+		return immagine;
 	}
-    return nuovo_elemento;
+
+    ordina_lista (nuovo_elemento);
+    return immagine;
 }
 
-struct immagine *ordina_lista (struct immagine *immagine)
+void ordina_lista (struct immagine *immagine)
 {
-    struct immagine *cur, *prev, *head;
+    int intensity, label;
+    double matrix [784];
+    int rifare = 1;
+    struct immagine *immagine1 = NULL;
+    struct immagine *immagine2 = NULL;
 
-    struct immagine *head = NULL;
+    while (rifare == 1){
+        rifare = 0;
+        for (immagine1 = immagine; immagine1->next != NULL; immagine1 = immagine1->next){
+            for (immagine2 = immagine1->next; immagine2 != NULL; immagine2 = immagine2->next){
+                if (immagine1->intensity > immagine2->intensity){
+                    //Set variabili temporanee
+                    intensity = immagine1->intensity;
+                    for (int y = 0; y < 28; y++)
+		            {
+			            for (int j = 0; j < 28; j++)
+			            {
+				            matrix[(y * 28 + j)] = immagine1->matrice[(y * 28 + j)];
+			            }
+		            }
+                    label = immagine1->label;
 
-    for (cur = immagine, prev = NULL; cur != NULL; prev = cur, cur = cur->next)
-    {
-        if (prev->intensity > cur->intensity)
-        {
-            struct immagine *swap = cur;
-            cur = prev;
-            prev = swap;
+                    //Set immagine1
+                    immagine1->intensity = immagine2->intensity;
+                    for (int y = 0; y < 28; y++)
+		            {
+			            for (int j = 0; j < 28; j++)
+			            {
+				            immagine1->matrice[(y * 28 + j)] = immagine2->matrice[(y * 28 + j)];
+			            }
+		            }
+                    immagine1->label = immagine2->label;
+
+                    //Set immagine2
+                    immagine2->intensity = intensity;
+                    for (int y = 0; y < 28; y++)
+		            {
+			            for (int j = 0; j < 28; j++)
+			            {
+				            immagine2->matrice[(y * 28 + j)] = matrix[(y * 28 + j)];
+			            }
+		            }
+                    immagine2->label = label;
+                    rifare = 1;
+                }
+            }
         }
     }
-
-    return head;
 }
-
-
-
-lista *ordina(lista *pointer)
-{
-	if (pointer && pointer->prox) {
-		int k;
-
-		do {
-                        lista *punt = pointer;
-
-			k = 0;
-			while (punt->prox) {
-				lista *punt1 = punt;
-
-				punt = punt->prox;
-				if ((punt1->elem) > (punt->elem)) {
-					int tmp = punt1->elem;
-
-					punt1->elem = punt->elem;
-					punt->elem = tmp;
-					k = 1;
-				}
-			}
-		} while (k != 0);
-	}
-
-	return pointer;
-}
-
-/*struct immagine *inizio = NULL;
-
-
-void insert (const struct immagine *immagine, const struct immagine *posizione){
-    struct immagine *cur, *prev;
-
-    for (cur = inizio, prev = NULL;
-         cur != NULL && immagine->intensity > cur->intensity;
-         prev = cur, cur = cur->next);
-    
-    if (cur != NULL && immagine->intensity == cur->intensity){
-        printf ("Immagine già presente. \n");
-        return;
-    }    
-} //Per test: funzione a cui passo immagine da inserire, posizione ricavata da search_immagine.
-  //obbiettivo: inserire nuova immagine in quel punto
-
-
-struct immagine *search_immagine(struct immagine *image, int n){
-
-    struct immagine *p;
-
-    for (p = image; p != NULL; p = p->next)
-        if (p->intensity < n && (p+1)->intensity > n)
-        return inizio;
-    return NULL;
-} //Per test: funzione a cui passo un puntatore all'inizio della lista e con n = intensità immagine che voglio inserire,
-  //mi ritorna un puntatore al luogo dove inserire la nuova immagine. 
-  //Se non trova nulla restituisce NULL
-*/
