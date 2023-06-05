@@ -7,7 +7,7 @@ project( mnist
 	 LANGUAGES C
          DESCRIPTION "Libreria per l'utilizzo di mnist." )
 
-add_library( mnist STATIC src/mnist.c)
+add_library( mnist SHARED src/mnist.c)
 
 target_include_directories( mnist
     PUBLIC include )

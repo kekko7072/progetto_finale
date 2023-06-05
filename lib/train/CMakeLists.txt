@@ -7,7 +7,7 @@ project( train
 	 LANGUAGES C
          DESCRIPTION "Libreria per l'implemntazione delle funzioni train." )
 
-add_library( train STATIC src/train.c)
+add_library( train SHARED src/train.c)
 
 target_include_directories( train
     PUBLIC include )
@@ -20,4 +20,3 @@ target_link_libraries( train
 
 target_link_libraries( train
         PRIVATE LII::image_helper)
-

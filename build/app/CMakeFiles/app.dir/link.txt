@@ -1,0 +1,1 @@
+/usr/bin/cc CMakeFiles/app.dir/src/main.c.o -o app  -Wl,-rpath,/home/leonardoparise/progetto5/progetto_finale/build/lib/classify:/home/leonardoparise/progetto5/progetto_finale/build/lib/train:/home/leonardoparise/progetto5/progetto_finale/build/lib/mnist ../lib/classify/libclassify.so ../lib/image_helper/libimage_helper.a ../lib/train/libtrain.so ../lib/mnist/libmnist.so 

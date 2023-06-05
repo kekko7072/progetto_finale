@@ -1,0 +1,1 @@
+/usr/bin/cc CMakeFiles/image_helper_lib_test.dir/src/test.c.o -o image_helper_lib_test  -Wl,-rpath,/home/leonardoparise/progetto5/progetto_finale/build/lib/mnist ../../lib/image_helper/libimage_helper.a ../../external/Unity/libUnity.a ../../lib/mnist/libmnist.so 

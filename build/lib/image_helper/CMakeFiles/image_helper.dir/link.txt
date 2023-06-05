@@ -1,0 +1,2 @@
+/usr/bin/ar qc libimage_helper.a CMakeFiles/image_helper.dir/src/image_helper.c.o
+/usr/bin/ranlib libimage_helper.a
