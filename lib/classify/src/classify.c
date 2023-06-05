@@ -35,7 +35,7 @@ void testchoice(struct immagine *testimage){
 int numbertest=-1;
  int tlabels[10000];
  double tmatrix[784];
- char string_numbertest[100]; //='NUL';
+ char string_numbertest[100]; 
  int NUM=1;
 
 

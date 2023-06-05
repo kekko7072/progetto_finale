@@ -15,7 +15,6 @@
 
 
 
-
 int main(void)
 {
  
@@ -25,7 +24,7 @@ int main(void)
  int matching_number;  //risultato atteso
  struct immagine *head = NULL;  //testa lista concatenata  //matrice dove salvare il conttenuto dell'immagine test
 
-  struct immagine *list;  
+  struct immagine *list=NULL;  
   struct immagine immagine_simile;
   int mode;
  
