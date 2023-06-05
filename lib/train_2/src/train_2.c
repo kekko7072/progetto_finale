@@ -34,23 +34,13 @@ struct immagine *train_ordinato(struct immagine *immagine)
 			}
 		}
 		nuovo_elemento->intensity = get_intensity(nuovo_elemento);
-		nuovo_elemento->next = NULL;
+		nuovo_elemento->next = immagine;
+		immagine = nuovo_elemento;
 
-		if (immagine == NULL)
-		{
-			return nuovo_elemento;
-		}
-		struct immagine *tmp = immagine;
-		while (tmp->next != NULL)
-		{
-			tmp = tmp->next;
-		}
-
-		tmp->next = NULL;
 		return immagine;
 	}
 
-	ordina_lista(nuovo_elemento);
+	ordina_lista(immagine);
 	return immagine;
 }
 
@@ -107,5 +97,17 @@ void ordina_lista(struct immagine *immagine)
 				}
 			}
 		}
+	}
+}
+
+void rimuovi(struct immagine *ultimaimmagine)
+{
+	struct immagine *attuale = NULL;
+
+	while (ultimaimmagine != NULL)
+	{
+		attuale = ultimaimmagine;
+		ultimaimmagine = ultimaimmagine->next;
+		free(attuale);
 	}
 }
