@@ -13,6 +13,9 @@ echo "5. Exit"
 # Read user input
 read -p "Enter your choice (1-5): " choice
 
+# Delete and create build directory
+rm -rf build && mkdir build
+
 # Enter in build and run cmake
 cd build && cmake .. && 
 
