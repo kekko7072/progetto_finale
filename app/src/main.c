@@ -33,7 +33,7 @@ int main(void)
 
 
 while((mode!=1)&&(mode!=2))
-{printf("MODALITA' SCELTA: ");
+{printf("CHOSEN MODE: ");
 scanf("%d",&mode);}
 
 testchoice(&imagetest);  //funzione per selezionare l'immagine da riconoscere
@@ -42,12 +42,12 @@ print(&imagetest); //stampo a schermo l'immagine di prova
  
 
 
-if(mode==1)
+
 list=train(head);  //funzione per caricare su la list "list" le immagini da utilizzare come database
 
 matching_number=classify(&imagetest,list,&immagine_simile);
 
-if(mode==2)
+
 
 
 printf("\nL'immagine rappresnta il numero %d\n",matching_number); 
