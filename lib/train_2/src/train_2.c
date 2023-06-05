@@ -9,7 +9,7 @@
 struct immagine *train_ordinato(struct immagine *immagine)
 {
 
-	struct immagine *nuovo_elemento, *prev, *cur;
+	struct immagine *nuovo_elemento;
 	int labels[60000];
 	double matrix[784];
 
