@@ -10,30 +10,39 @@
 
 int main(void)
 {
- 
- //numero immagine contenuta nel database test
- 
  struct immagine imagetest;  //immagine da confrontare
  int matching_number;  //risultato atteso
  struct immagine *head = NULL;  //testa lista concatenata  //matrice dove salvare il conttenuto dell'immagine test
 
-  struct immagine *list;  
+  struct immagine *list=NULL;  
   struct immagine immagine_simile;
+  int mode;
  
- list=train(head);
-
- testchoice(&imagetest);
 
 
 
-print(&imagetest);
-printf("\nQuesto è il label che vorrei ottenere: %d\n",imagetest.label);
+while((mode!=1)&&(mode!=2))
+{printf("CHOSEN MODE: ");
+scanf("%d",&mode);}
+
+testchoice(&imagetest);  //funzione per selezionare l'immagine da riconoscere
+ 
+print(&imagetest); //stampo a schermo l'immagine di prova
+ 
 
 
-matching_number=classify(&imagetest,list,&immagine_simile); 
 
-print(&immagine_simile);
-printf("\nquesto è il label dell'immagine simile %d\n",matching_number); 
+list=train(head);  //funzione per caricare su la list "list" le immagini da utilizzare come database
+
+matching_number=classify(&imagetest,list,&immagine_simile);
+
+
+
+
+printf("\nL'immagine rappresnta il numero %d\n",matching_number); 
+
+rimuovi(list);
+
 /*
 int main()
 {
