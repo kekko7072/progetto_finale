@@ -1,1 +1,0 @@
-/usr/bin/cc CMakeFiles/train_lib_test.dir/src/test.c.o -o train_lib_test  -Wl,-rpath,/home/leonardoparise/progetto5/progetto_finale/build/lib/train:/home/leonardoparise/progetto5/progetto_finale/build/lib/mnist ../../lib/train/libtrain.so ../../external/Unity/libUnity.a -Wl,-rpath-link,/home/leonardoparise/progetto5/progetto_finale/build/lib/mnist 

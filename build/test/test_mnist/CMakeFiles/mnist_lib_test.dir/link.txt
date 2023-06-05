@@ -1,1 +1,0 @@
-/usr/bin/cc CMakeFiles/mnist_lib_test.dir/src/test.c.o -o mnist_lib_test  -Wl,-rpath,/home/leonardoparise/progetto5/progetto_finale/build/lib/mnist ../../lib/mnist/libmnist.so ../../external/Unity/libUnity.a 

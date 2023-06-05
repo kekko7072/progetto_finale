@@ -1,1 +1,0 @@
-/usr/bin/cc -fPIC -shared -Wl,-soname,libtrain.so -o libtrain.so CMakeFiles/train.dir/src/train.c.o  -Wl,-rpath,/home/leonardoparise/progetto5/progetto_finale/build/lib/mnist ../image_helper/libimage_helper.a ../mnist/libmnist.so 
