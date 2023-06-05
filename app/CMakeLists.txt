@@ -14,6 +14,9 @@ target_link_libraries( app
 target_link_libraries( app
 	PRIVATE LII::image_helper )
 
+target_link_libraries( app
+	PRIVATE LII::train_2)
+
 add_executable( train src/train.c)
 
 target_link_libraries( train
