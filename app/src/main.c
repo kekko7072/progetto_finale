@@ -27,21 +27,32 @@ int main(void)
 
   struct immagine *list;  
   struct immagine immagine_simile;
+  int mode;
  
- list=train(head);
-
- testchoice(&imagetest);
 
 
 
-print(&imagetest);
-printf("\nQuesto è il label che vorrei ottenere: %d\n",imagetest.label);
+while((mode!=1)&&(mode!=2))
+{printf("MODALITA' SCELTA: ");
+scanf("%d",&mode);}
+
+testchoice(&imagetest);  //funzione per selezionare l'immagine da riconoscere
+ 
+print(&imagetest); //stampo a schermo l'immagine di prova
+ 
 
 
-matching_number=classify(&imagetest,list,&immagine_simile); 
+if(mode==1)
+list=train(head);  //funzione per caricare su la list "list" le immagini da utilizzare come database
 
-print(&immagine_simile);
-printf("\nquesto è il label dell'immagine simile %d\n",matching_number); 
+matching_number=classify(&imagetest,list,&immagine_simile);
+
+if(mode==2)
+
+
+printf("\nL'immagine rappresnta il numero %d\n",matching_number); 
+
+rimuovi(list);
 
 return 0;
 }
