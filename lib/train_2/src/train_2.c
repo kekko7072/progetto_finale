@@ -4,18 +4,19 @@
 #include "train_2.h"
 #include "image_helper.h"
 #include "mnist.h"
+#include "string.h"
 
-struct immagine *train_ordinato (struct immagine *immagine)
+struct immagine *train_ordinato(struct immagine *immagine)
 {
 
-    struct immagine *nuovo_elemento,*prev, *cur;
-    int labels [60000];
-    double matrix [784];
+	struct immagine *nuovo_elemento, *prev, *cur;
+	int labels[60000];
+	double matrix[784];
 
-    load_mnist();
-    label_char2int (60000, train_label_char, labels); //associ alla matrice label i label delle immagini
+	load_mnist();
+	label_char2int(60000, train_label_char, labels); // associ alla matrice label i label delle immagini
 
-    for (int i = 0; i < 60000; i++)
+	for (int i = 0; i < 60000; i++)
 	{
 		nuovo_elemento = malloc(sizeof(struct immagine));
 		if (nuovo_elemento == NULL)
@@ -35,70 +36,76 @@ struct immagine *train_ordinato (struct immagine *immagine)
 		nuovo_elemento->intensity = get_intensity(nuovo_elemento);
 		nuovo_elemento->next = NULL;
 
-        if (immagine == NULL){
-            return nuovo_elemento;
-        }
-        struct immagine *tmp = immagine;
-        while (tmp->next != NULL){
-            tmp = tmp->next;
-        }
+		if (immagine == NULL)
+		{
+			return nuovo_elemento;
+		}
+		struct immagine *tmp = immagine;
+		while (tmp->next != NULL)
+		{
+			tmp = tmp->next;
+		}
 
-        tmp->next = NULL;
+		tmp->next = NULL;
 		return immagine;
 	}
 
-    ordina_lista (nuovo_elemento);
-    return immagine;
+	ordina_lista(nuovo_elemento);
+	return immagine;
 }
 
-void ordina_lista (struct immagine *immagine)
+void ordina_lista(struct immagine *immagine)
 {
-    int intensity, label;
-    double matrix [784];
-    int rifare = 1;
-    struct immagine *immagine1 = NULL;
-    struct immagine *immagine2 = NULL;
+	int intensity, label;
+	double matrix[784];
+	int rifare = 1;
+	struct immagine *immagine1 = NULL;
+	struct immagine *immagine2 = NULL;
 
-    while (rifare == 1){
-        rifare = 0;
-        for (immagine1 = immagine; immagine1->next != NULL; immagine1 = immagine1->next){
-            for (immagine2 = immagine1->next; immagine2 != NULL; immagine2 = immagine2->next){
-                if (immagine1->intensity > immagine2->intensity){
-                    //Set variabili temporanee
-                    intensity = immagine1->intensity;
-                    for (int y = 0; y < 28; y++)
-		            {
-			            for (int j = 0; j < 28; j++)
-			            {
-				            matrix[(y * 28 + j)] = immagine1->matrice[(y * 28 + j)];
-			            }
-		            }
-                    label = immagine1->label;
+	while (rifare == 1)
+	{
+		rifare = 0;
+		for (immagine1 = immagine; immagine1->next != NULL; immagine1 = immagine1->next)
+		{
+			for (immagine2 = immagine1->next; immagine2 != NULL; immagine2 = immagine2->next)
+			{
+				if (immagine1->intensity > immagine2->intensity)
+				{
+					// Set variabili temporanee
+					intensity = immagine1->intensity;
+					for (int y = 0; y < 28; y++)
+					{
+						for (int j = 0; j < 28; j++)
+						{
+							matrix[(y * 28 + j)] = immagine1->matrice[(y * 28 + j)];
+						}
+					}
+					label = immagine1->label;
 
-                    //Set immagine1
-                    immagine1->intensity = immagine2->intensity;
-                    for (int y = 0; y < 28; y++)
-		            {
-			            for (int j = 0; j < 28; j++)
-			            {
-				            immagine1->matrice[(y * 28 + j)] = immagine2->matrice[(y * 28 + j)];
-			            }
-		            }
-                    immagine1->label = immagine2->label;
+					// Set immagine1
+					immagine1->intensity = immagine2->intensity;
+					for (int y = 0; y < 28; y++)
+					{
+						for (int j = 0; j < 28; j++)
+						{
+							immagine1->matrice[(y * 28 + j)] = immagine2->matrice[(y * 28 + j)];
+						}
+					}
+					immagine1->label = immagine2->label;
 
-                    //Set immagine2
-                    immagine2->intensity = intensity;
-                    for (int y = 0; y < 28; y++)
-		            {
-			            for (int j = 0; j < 28; j++)
-			            {
-				            immagine2->matrice[(y * 28 + j)] = matrix[(y * 28 + j)];
-			            }
-		            }
-                    immagine2->label = label;
-                    rifare = 1;
-                }
-            }
-        }
-    }
+					// Set immagine2
+					immagine2->intensity = intensity;
+					for (int y = 0; y < 28; y++)
+					{
+						for (int j = 0; j < 28; j++)
+						{
+							immagine2->matrice[(y * 28 + j)] = matrix[(y * 28 + j)];
+						}
+					}
+					immagine2->label = label;
+					rifare = 1;
+				}
+			}
+		}
+	}
 }

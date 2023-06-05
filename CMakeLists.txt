@@ -15,7 +15,7 @@ endif()
 # Create targets for building the (local) libraries.
 add_subdirectory( lib/image_helper )
 add_subdirectory( lib/mnist )
-
+add_subdirectory( lib/train_2 )
 
 # Create the targets for the entire example-app.
 add_subdirectory( app )
