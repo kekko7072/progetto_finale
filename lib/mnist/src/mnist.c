@@ -28,7 +28,7 @@ void read_mnist_char(char *file_path, int num_data, int len_info, int arr_n, uns
 
     if ((fd = open(file_path, O_RDONLY)) == -1)
     {
-        fprintf(stderr, "couldn't open image file");
+        fprintf(stderr, "Couldn't open image file, be sure of path!\n\nYou are in path %s\nFiles are in progetto_finale/data and can be found by software with %s\n\n", getcwd(NULL, 0), file_path);
         exit(-1);
     }
 
@@ -54,11 +54,10 @@ void read_mnist_char(char *file_path, int num_data, int len_info, int arr_n, uns
 void image_char2double(int num_data, unsigned char data_image_char[][SIZE], double data_image[SIZE])
 {
     int i, j;
-    //for (i = 0; i < num_data; i++)
-        for (j = 0; j < SIZE; j++)
-            data_image[j] = (double)data_image_char[num_data][j]; // 255.0;
-		//CUSTOM FUNCTION
-
+    // for (i = 0; i < num_data; i++)
+    for (j = 0; j < SIZE; j++)
+        data_image[j] = (double)data_image_char[num_data][j]; // 255.0;
+                                                              // CUSTOM FUNCTION
 }
 
 void label_char2int(int num_data, unsigned char data_label_char[][1], int data_label[])

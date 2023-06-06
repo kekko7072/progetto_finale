@@ -23,13 +23,13 @@ e poi basta selezionare la versione che si desidera avere.
 # Esecuzione
   ## versione 5.1
   - non ottimizzata : `./release/app_5_1`
-  - ottimizzata gcc -O1 : `./release/app_5_1_opt_1`
-  - ottimizzata gcc -O2 : `./release/app_5_1_opt_2`
+  - ottimizzata **gcc -O1** : `./release/app_5_1_opt_1`
+  - ottimizzata **gcc -O2** : `./release/app_5_1_opt_2`
   
   ## versione 5.2
    - non ottimizzata :  `./release/app_5_2`
-  - ottimizzata gcc -O1 :  `./release/app_5_2_opt_1`
-  - ottimizzata gcc -O2 : `./release/app_5_2_opt_2`
+  - ottimizzata **gcc -O1** :  `./release/app_5_2_opt_1`
+  - ottimizzata **gcc -O2** : `./release/app_5_2_opt_2`
 
 # Testing
 Per l'escecuzione dei test è necessario avviare il programma bash di testing:
