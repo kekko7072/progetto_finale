@@ -27,7 +27,6 @@ add_subdirectory( lib/train2 )
 # Create the targets for the entire example-app.
 add_subdirectory( app )
 
-
 if(TARGET_GROUP STREQUAL production)
 	add_subdirectory(app)
 elseif(TARGET_GROUP STREQUAL test)

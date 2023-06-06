@@ -4,8 +4,6 @@
 #include "string.h"
 #include "image_helper.h"
 #include "mnist.h"
-#include "classify.h"
-#include "train.h"
 #include "classify2.h"
 #include "train2.h"
 
@@ -43,6 +41,6 @@ int main(void)
     print(immagine_simile);
     printf("\nquesto è il label dell'immagine simile %d\n", immagine_simile->label);
     printf("Questa è l'intensit simile: %ld\n", immagine_simile->intensity);
-    rimuovi(head);
+    rimuovi2(head);
     return 0;
 }

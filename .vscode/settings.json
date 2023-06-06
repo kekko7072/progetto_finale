@@ -4,6 +4,7 @@
         "string.h": "c",
         "mnist.h": "c",
         "classify2.h": "c",
-        "classify.h": "c"
+        "classify.h": "c",
+        "train2.h": "c"
     }
 }

@@ -22,7 +22,7 @@ rm -rf release && mkdir release
 case $choice in
     0)
         echo "Compiling 5.1..."
-        gcc -Wall -o release/app_5_1 app/src/main.c \
+        gcc -Wall -o release/app app/src/main.c \
             -Ilib/image_helper/include \
             -Ilib/classify/include \
             -Ilib/mnist/include \
@@ -32,7 +32,7 @@ case $choice in
             lib/classify/src/classify.c \
             lib/train/src/train.c 
         echo "To start: "
-        echo " ./release/app_5_1 "
+        echo " ./release/5_1/app "
         ;;
     1)
         echo "Compiling 5.1 optimized 1..."
@@ -64,7 +64,7 @@ case $choice in
         ;;
     3)
         echo "Compiling 5.2..."
-        gcc -Wall -o release/app_5_2 app/src/main.c \
+        gcc -Wall -o release/app_5_2 app/src/main_2.c \
             -Ilib/image_helper/include \
             -Ilib/classify/include \
             -Ilib/mnist/include \
@@ -78,7 +78,7 @@ case $choice in
         ;;
     4)
         echo "Compiling 5.2 optimized 1..."
-        gcc -Wall -o release/app_5_2_opt_1 app/src/main.c \
+        gcc -Wall -o release/app_5_2_opt_1 app/src/main_2.c \
             -Ilib/image_helper/include \
             -Ilib/classify/include \
             -Ilib/mnist/include \
@@ -92,7 +92,7 @@ case $choice in
         ;;
     5)
         echo "Compiling 5.1 optimized 2..."
-        gcc -Wall -o release/app_5_2_opt_2 app/src/main.c \
+        gcc -Wall -o release/app_5_2_opt_2 app/src/main_2.c \
             -Ilib/image_helper/include \
             -Ilib/classify/include \
             -Ilib/mnist/include \
