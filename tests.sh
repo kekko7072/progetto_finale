@@ -36,13 +36,13 @@ case $choice in
     3)
         echo "Running Test mnist..."
         make mnist_lib_test && cd test 
-        chmod +x ./test_mnist/mnist_test
+        chmod +x ./test_mnist/mnist_lib_test
         ./test_image_helper/image_helper_lib_test
         ;;
     4)
         echo "Running Test train..."
         make train_lib_test && cd test 
-        chmod +x ./test_train/train_test
+        chmod +x ./test_train/train_lib_test
         ./test_train/train_lib_test
         ;;
     5)
