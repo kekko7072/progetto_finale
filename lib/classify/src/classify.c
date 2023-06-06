@@ -49,7 +49,6 @@ while(numbertest>9999 || numbertest<0)
 
 load_mnist();  
 label_char2int(10000, test_label_char, tlabels); 
-printf("\n%d\n",tlabels[numbertest]);
 set_label(tlabels[numbertest], testimage);
 
  

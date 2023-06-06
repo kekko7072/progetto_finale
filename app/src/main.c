@@ -6,6 +6,8 @@
 #include "train.h"
 #include "classify.h"
 
+
+
 int main(void)
 {
     struct immagine imagetest;    // immagine da confrontare
@@ -24,13 +26,25 @@ int main(void)
 
     testchoice(&imagetest); // funzione per selezionare l'immagine da riconoscere
 
-    print(&imagetest); // stampo a schermo l'immagine di prova
+while((mode!=1)&&(mode!=2))
+{printf("CHOSEN MODE: ");
+scanf("%d",&mode);}
 
-    list = train(head); // funzione per caricare su la list "list" le immagini da utilizzare come database
+testchoice(&imagetest);  //funzione per selezionare l'immagine da riconoscere
+ 
+print(&imagetest); //stampo a schermo l'immagine di prova
+ 
 
-    matching_number = classify(&imagetest, list, &immagine_simile);
 
-    printf("\nL'immagine rappresnta il numero %d\n", matching_number);
+
+list=train(head);  //funzione per caricare su la list "list" le immagini da utilizzare come database
+
+matching_number=classify(&imagetest,list,&immagine_simile);
+
+
+
+
+printf("\nL'immagine rappresnta il numero %d\n",matching_number); 
 
     rimuovi(list);
 
