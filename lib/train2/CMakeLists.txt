@@ -5,7 +5,7 @@ project( train2
 	     LANGUAGES C
          DESCRIPTION "Libreria train2.c" )
 
-add_library( train2 STATIC src/train2.c)
+add_library( train2 SHARED src/train2.c)
 
 
 target_include_directories( train2 

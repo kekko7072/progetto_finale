@@ -39,9 +39,6 @@ target_link_libraries( app_2
 	PRIVATE LII::image_helper )
 
 target_link_libraries( app_2
-	PRIVATE LII::train )
-
-target_link_libraries( app_2
 	PRIVATE LII::train2 )
 
 target_link_libraries( app_2
