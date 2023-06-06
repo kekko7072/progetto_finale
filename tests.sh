@@ -1,7 +1,5 @@
 #!/bin/bash
 
-#chmod +x tests.sh
-
 # Prompt the user to choose a test
 echo "Please choose a test to perform:"
 echo "1. Test classify"
