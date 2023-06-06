@@ -8,10 +8,10 @@ Nome del gruppo: PaPaBeVe
 Partecipanti: 
 | Nome Cognome | Matricola | GitHub |
 |----------|----------|----------|
-|   Bellorio Luca   |   2003720   |   lucabellorio   |
-|   Pasqualotto Stephen   |   2001349   |   stephenpasqualottounipd   |
-|   Parise Leonardo   |   2005438   |   leonardo parise   |
-|   Vezzani Francesco   |   2003297   |   kekko7072   |
+|   Bellorio Luca   |   2003720   |   [lucabellorio](https://github.com/lucabellorio)   |
+|   Pasqualotto Stephen   |   2001349   |   [stephenpasqualottounipd](https://github.com/stephenpasqualottounipd)   |
+|   Parise Leonardo   |   2005438   |   [leonardo parise](https://github.com/leonardoparise)   |
+|   Vezzani Francesco   |   2003297   |   [kekko7072](https://github.com/kekko7072)   |
 
 # Compilazione
 Comandi per l'esecuzione dei file compilati:
