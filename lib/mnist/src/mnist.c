@@ -28,7 +28,7 @@ void read_mnist_char(char *file_path, int num_data, int len_info, int arr_n, uns
 
     if ((fd = open(file_path, O_RDONLY)) == -1)
     {
-        fprintf(stderr, "couldn't open image file");
+        fprintf(stderr, "\nCouldn't open image file\n");
         exit(-1);
     }
 
@@ -54,11 +54,11 @@ void read_mnist_char(char *file_path, int num_data, int len_info, int arr_n, uns
 void image_char2double(int num_data, unsigned char data_image_char[][SIZE], double data_image[SIZE])
 {
     int i, j;
-    //for (i = 0; i < num_data; i++)
-        for (j = 0; j < SIZE; j++)
-            data_image[j] = (double)data_image_char[num_data][j]; // 255.0;
-		//CUSTOM FUNCTION
 
+    // for (i = 0; i < num_data; i++)
+    for (j = 0; j < SIZE; j++)
+        data_image[j] = (double)data_image_char[num_data][j]; // 255.0;
+                                                              // CUSTOM FUNCTION
 }
 
 void label_char2int(int num_data, unsigned char data_label_char[][1], int data_label[])
@@ -110,7 +110,7 @@ void print_mnist_label(int data_label[], int num_data)
             printf("test_label[%d]: %d\n", i, test_label[i]);
 }
 
-// name: path for saving image (ex: "./images/sample.pgm")
+/*// name: path for saving image (ex: "./images/sample.pgm")
 void save_image(int n, char name[])
 {
     char file_name[MAX_FILENAME];
@@ -161,4 +161,4 @@ void save_mnist_pgm(double data_image[][SIZE], int index)
     }
 
     save_image(n, "");
-}
+}*/
