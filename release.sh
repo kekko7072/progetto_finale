@@ -22,7 +22,7 @@ rm -rf release && mkdir release
 case $choice in
     0)
         echo "Running 5.1 build..."
-        gcc -Wall -o release/main_5_1 app/src/main.c \
+        gcc -Wall -o release/app_5_1 app/src/main.c \
             -Ilib/image_helper/include \
             -Ilib/classify/include \
             -Ilib/mnist/include \
@@ -34,7 +34,7 @@ case $choice in
         ;;
     1)
         echo "Running 5.1 build optimized 1..."
-        gcc -Wall -O1 -o release/main_5_1_opt_1 app/src/main.c \
+        gcc -Wall -O1 -o release/app_5_1_opt_1 app/src/main.c \
             -Ilib/image_helper/include \
             -Ilib/classify/include \
             -Ilib/mnist/include \
@@ -46,7 +46,7 @@ case $choice in
         ;;
     2)
         echo "Running 5.1 build optimized 2..."
-        gcc -Wall -O2 -o release/main_5_1_opt_2 app/src/main.c \
+        gcc -Wall -O2 -o release/app_5_1_opt_2 app/src/main.c \
             -Ilib/image_helper/include \
             -Ilib/classify/include \
             -Ilib/mnist/include \
@@ -58,38 +58,38 @@ case $choice in
         ;;
     3)
         echo "Running 5.2 build..."
-        gcc -Wall -o release/main_5_2 app/src/main.c \
+        gcc -Wall -o release/app_5_2 app/src/main.c \
             -Ilib/image_helper/include \
             -Ilib/classify/include \
             -Ilib/mnist/include \
             -Ilib/train/include \
             lib/image_helper/src/image_helper.c \
             lib/mnist/src/mnist.c \
-            lib/classify_2/src/classify.c \
+            lib/classify/src/classify.c \
             lib/train_2/src/train.c 
         ;;
     4)
         echo "Running 5.2 build optimized 1..."
-        gcc -Wall -o release/main_5_2_opt_1 app/src/main.c \
+        gcc -Wall -o release/app_5_2_opt_1 app/src/main.c \
             -Ilib/image_helper/include \
             -Ilib/classify/include \
             -Ilib/mnist/include \
             -Ilib/train/include \
             lib/image_helper/src/image_helper.c \
             lib/mnist/src/mnist.c \
-            lib/classify_2/src/classify.c \
+            lib/classify/src/classify.c \
             lib/train_2/src/train.c 
         ;;
     5)
         echo "Running 5.2 build optimized 2..."
-        gcc -Wall -o release/main_5_2_opt_2 app/src/main.c \
+        gcc -Wall -o release/app_5_2_opt_2 app/src/main.c \
             -Ilib/image_helper/include \
             -Ilib/classify/include \
             -Ilib/mnist/include \
             -Ilib/train/include \
             lib/image_helper/src/image_helper.c \
             lib/mnist/src/mnist.c \
-            lib/classify_2/src/classify.c \
+            lib/classify/src/classify.c \
             lib/train_2/src/train.c 
         ;;
     6)
