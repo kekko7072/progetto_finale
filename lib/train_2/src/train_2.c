@@ -37,30 +37,70 @@ struct immagine *train_ordinato(struct immagine *immagine)
 		nuovo_elemento->next = immagine;
 		immagine = nuovo_elemento;
 
-		return immagine;
+		immagine = ordina_lista (immagine, i);
 	}
-
-	ordina_lista(immagine);
 	return immagine;
 }
 
-void ordina_lista(struct immagine *immagine)
-{
-	int intensity, label;
-	double matrix[784];
-	int rifare = 1;
-	struct immagine *immagine1 = NULL;
-	struct immagine *immagine2 = NULL;
 
-	while (rifare == 1)
-	{
-		rifare = 0;
-		for (immagine1 = immagine; immagine1->next != NULL; immagine1 = immagine1->next)
-		{
-			for (immagine2 = immagine1->next; immagine2 != NULL; immagine2 = immagine2->next)
-			{
-				if (immagine1->intensity > immagine2->intensity)
-				{
+struct immagine *ordina_lista (struct immagine *lista, int i)
+{
+    struct immagine *immagine1;
+    struct immagine *immagine2;
+    int intensity, label;
+	double matrix [784];
+
+    if (i == 0){
+        return lista;
+    }
+
+    if (i == 1){
+        immagine1 = lista;
+        immagine2 = immagine1->next;
+
+        if (immagine1->intensity > immagine2->intensity){
+            // Set variabili temporanee
+					intensity = immagine1->intensity;
+					for (int y = 0; y < 28; y++)
+					{
+						for (int j = 0; j < 28; j++)
+						{
+							matrix[(y * 28 + j)] = immagine1->matrice[(y * 28 + j)];
+						}
+					}
+					label = immagine1->label;
+
+					// Set immagine1
+					immagine1->intensity = immagine2->intensity;
+					for (int y = 0; y < 28; y++)
+					{
+						for (int j = 0; j < 28; j++)
+						{
+							immagine1->matrice[(y * 28 + j)] = immagine2->matrice[(y * 28 + j)];
+						}
+					}
+					immagine1->label = immagine2->label;
+
+					// Set immagine2
+					immagine2->intensity = intensity;
+					for (int y = 0; y < 28; y++)
+					{
+						for (int j = 0; j < 28; j++)
+						{
+							immagine2->matrice[(y * 28 + j)] = matrix[(y * 28 + j)];
+						}
+					}
+					immagine2->label = label;
+        }
+
+        return lista; 
+    }
+
+    if (i >= 3){
+        for (immagine1 = lista; immagine1 != NULL; immagine1 = immagine1->next){
+            for (immagine2 = immagine1->next; immagine2 != NULL; immagine2 = immagine2->next){
+                if (immagine1->intensity > immagine2->intensity){
+                    
 					// Set variabili temporanee
 					intensity = immagine1->intensity;
 					for (int y = 0; y < 28; y++)
@@ -93,11 +133,11 @@ void ordina_lista(struct immagine *immagine)
 						}
 					}
 					immagine2->label = label;
-					rifare = 1;
-				}
-			}
-		}
-	}
+                }
+            }
+        }
+        return lista;
+    }
 }
 
 void rimuovi(struct immagine *ultimaimmagine)
