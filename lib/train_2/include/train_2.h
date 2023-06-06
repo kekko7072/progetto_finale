@@ -9,7 +9,8 @@ struct immagine *train_ordinato(struct immagine *head);
 /*
  *  Funzioni per ordinare la lista di immagini
  */
-void ordina_lista(struct immagine *immagine);
+struct immagine *ordina_lista (struct immagine *lista, int i);
+
 
 /*
  *  Funzioni per rimuovere l'ultima immagine
