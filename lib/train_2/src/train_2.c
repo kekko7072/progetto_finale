@@ -18,124 +18,54 @@ struct immagine *train_ordinato(struct immagine *immagine)
 
 	for (int i = 0; i < 60000; i++)
 	{
-		nuovo_elemento = malloc(sizeof(struct immagine));
-		if (nuovo_elemento == NULL)
-		{
-			printf("errore nell'allocazione di memoria \n");
-			exit(-1);
-		} // ok
-		set_label(labels[i], nuovo_elemento);
 		image_char2double(i, train_image_char, matrix);
-		for (int y = 0; y < 28; y++)
-		{
-			for (int j = 0; j < 28; j++)
-			{
-				nuovo_elemento->matrice[(y * 28 + j)] = matrix[(y * 28 + j)];
-			}
-		}
-		nuovo_elemento->intensity = get_intensity(nuovo_elemento);
-		nuovo_elemento->next = immagine;
-		immagine = nuovo_elemento;
-
-		immagine = ordina_lista (immagine, i);
+		
+		immagine = inserimento_ordinato (immagine, labels[i], matrix);
 	}
 	return immagine;
 }
 
 
-struct immagine *ordina_lista (struct immagine *lista, int i)
-{
-    struct immagine *immagine1;
-    struct immagine *immagine2;
-    int intensity, label;
-	double matrix [784];
 
-    if (i == 0){
+struct immagine *inserimento_ordinato (struct immagine *lista, int label, double matrix [784])
+{
+    struct immagine *prec, *curr, *new_node;
+
+    prec = NULL;
+    curr = lista;
+
+    //F1: Allocazione dinamica
+    new_node = malloc (sizeof (struct immagine));
+    assert (new_node != NULL);
+
+    set_label (label, new_node);
+	for (int y = 0; y < 28; y++)
+		{
+			for (int j = 0; j < 28; j++)
+			{
+				new_node->matrice[(y * 28 + j)] = matrix[(y * 28 + j)];
+			}
+		}
+	new_node->intensity = get_intensity(new_node);
+
+	//F2: Ricerca luogo inserimento
+	while (curr != NULL && new_node->intensity > curr->intensity)
+    {
+        prec = curr;
+        curr = curr->next;
+    }
+
+    //F3: Aggiornamento collegamenti
+    if (prec == NULL)
+    {
+        new_node->next = lista;
+        lista = new_node;
         return lista;
     }
-
-    if (i == 1){
-        immagine1 = lista;
-        immagine2 = immagine1->next;
-
-        if (immagine1->intensity > immagine2->intensity){
-            // Set variabili temporanee
-					intensity = immagine1->intensity;
-					for (int y = 0; y < 28; y++)
-					{
-						for (int j = 0; j < 28; j++)
-						{
-							matrix[(y * 28 + j)] = immagine1->matrice[(y * 28 + j)];
-						}
-					}
-					label = immagine1->label;
-
-					// Set immagine1
-					immagine1->intensity = immagine2->intensity;
-					for (int y = 0; y < 28; y++)
-					{
-						for (int j = 0; j < 28; j++)
-						{
-							immagine1->matrice[(y * 28 + j)] = immagine2->matrice[(y * 28 + j)];
-						}
-					}
-					immagine1->label = immagine2->label;
-
-					// Set immagine2
-					immagine2->intensity = intensity;
-					for (int y = 0; y < 28; y++)
-					{
-						for (int j = 0; j < 28; j++)
-						{
-							immagine2->matrice[(y * 28 + j)] = matrix[(y * 28 + j)];
-						}
-					}
-					immagine2->label = label;
-        }
-
-        return lista; 
-    }
-
-    if (i >= 3){
-        for (immagine1 = lista; immagine1 != NULL; immagine1 = immagine1->next){
-            for (immagine2 = immagine1->next; immagine2 != NULL; immagine2 = immagine2->next){
-                if (immagine1->intensity > immagine2->intensity){
-                    
-					// Set variabili temporanee
-					intensity = immagine1->intensity;
-					for (int y = 0; y < 28; y++)
-					{
-						for (int j = 0; j < 28; j++)
-						{
-							matrix[(y * 28 + j)] = immagine1->matrice[(y * 28 + j)];
-						}
-					}
-					label = immagine1->label;
-
-					// Set immagine1
-					immagine1->intensity = immagine2->intensity;
-					for (int y = 0; y < 28; y++)
-					{
-						for (int j = 0; j < 28; j++)
-						{
-							immagine1->matrice[(y * 28 + j)] = immagine2->matrice[(y * 28 + j)];
-						}
-					}
-					immagine1->label = immagine2->label;
-
-					// Set immagine2
-					immagine2->intensity = intensity;
-					for (int y = 0; y < 28; y++)
-					{
-						for (int j = 0; j < 28; j++)
-						{
-							immagine2->matrice[(y * 28 + j)] = matrix[(y * 28 + j)];
-						}
-					}
-					immagine2->label = label;
-                }
-            }
-        }
+    else
+    {
+        prec->next = new_node;
+        new_node->next = curr;
         return lista;
     }
 }
