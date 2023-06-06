@@ -23,12 +23,6 @@ int main(void)
     list = train_ordinato(head);
     head = list;
     testa = head;
-    for (int i = 0; i < 30; i++)
-    {
-        printf("%ld", testa->intensity);
-        printf("\n");
-        testa = testa->next;
-    }
 
     imagetest = scelta();
 

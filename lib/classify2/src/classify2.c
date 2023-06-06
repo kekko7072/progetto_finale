@@ -13,26 +13,30 @@ struct immagine *classificadue(const struct immagine *image, struct immagine *li
 	struct immagine *corresponding_image;
 	int i = 0;
 	int k = 1000;
-	long int intensity = 200000;
+	long int intensity = 0;
 
 	puntatoreintensity = list_images;
 	puntatorericerca = puntatoreintensity;
 	corresponding_image = puntatorericerca;
 	mindistance = compute_distance(image, list_images);
-	while (puntatoreintensity != NULL && image->intensity > intensity && i < (k / 2)) // ricerca iterativa
+	while (puntatoreintensity != NULL && image->intensity > intensity && i < 59500) // ricerca iterativa
 	{
 		intensity = puntatoreintensity->intensity;
 		puntatoreintensity = puntatoreintensity->next;
 		i++;
+		if(i > 500){
+			puntatorericerca = puntatorericerca->next;
+		}
 	}
 
-	while (puntatoreintensity != NULL && image->intensity > intensity && i < (60000 - (k / 2))) // ricerca iterativa
+	/*while (puntatoreintensity != NULL && image->intensity > intensity && i < 59500) // ricerca iterativa
 	{
 		intensity = puntatoreintensity->intensity;
 		puntatoreintensity = puntatoreintensity->next;
 		i++;
 		puntatorericerca = puntatorericerca->next; // sono dietro di 500 passi
-	}
+		printf("ciao\n");
+	}*/
 
 	for (int j = 0; j <= k; j++)
 	{
