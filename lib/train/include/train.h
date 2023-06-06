@@ -1,13 +1,14 @@
-// image_helper.h
 #ifndef train_h
 #define train_h
 
-
+/*
+ *  Struttura dati per la lista di immagini
+ */
 struct immagine *train(struct immagine *head);
-void rimuovi (struct immagine *ultimaimmagine);
 
-
-
-//TODO implement classify
+/*
+ *  Funzioni per rimuovere l'ultima immagine
+ */
+void rimuovi(struct immagine *ultimaimmagine);
 
 #endif

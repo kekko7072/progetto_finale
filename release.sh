@@ -21,7 +21,7 @@ rm -rf release && mkdir release
 # Execute the corresponding test based on the user's choice
 case $choice in
     0)
-        echo "Running 5.1 build..."
+        echo "Compiling 5.1..."
         gcc -Wall -o release/app_5_1 app/src/main.c \
             -Ilib/image_helper/include \
             -Ilib/classify/include \
@@ -31,9 +31,11 @@ case $choice in
             lib/mnist/src/mnist.c \
             lib/classify/src/classify.c \
             lib/train/src/train.c 
+        echo "To start: "
+        echo " ./release/app_5_1 "
         ;;
     1)
-        echo "Running 5.1 build optimized 1..."
+        echo "Compiling 5.1 optimized 1..."
         gcc -Wall -O1 -o release/app_5_1_opt_1 app/src/main.c \
             -Ilib/image_helper/include \
             -Ilib/classify/include \
@@ -43,9 +45,11 @@ case $choice in
             lib/mnist/src/mnist.c \
             lib/classify/src/classify.c \
             lib/train/src/train.c 
+        echo "To start: "
+        echo " ./release/app_5_1_opt_1 "
         ;;
     2)
-        echo "Running 5.1 build optimized 2..."
+        echo "Compiling 5.1 optimized 2..."
         gcc -Wall -O2 -o release/app_5_1_opt_2 app/src/main.c \
             -Ilib/image_helper/include \
             -Ilib/classify/include \
@@ -55,9 +59,11 @@ case $choice in
             lib/mnist/src/mnist.c \
             lib/classify/src/classify.c \
             lib/train/src/train.c
+        echo "To start: "
+        echo " ./release/app_5_1_opt_2 "
         ;;
     3)
-        echo "Running 5.2 build..."
+        echo "Compiling 5.2..."
         gcc -Wall -o release/app_5_2 app/src/main.c \
             -Ilib/image_helper/include \
             -Ilib/classify/include \
@@ -65,11 +71,13 @@ case $choice in
             -Ilib/train/include \
             lib/image_helper/src/image_helper.c \
             lib/mnist/src/mnist.c \
-            lib/classify/src/classify.c \
-            lib/train_2/src/train.c 
+            lib/classify2/src/classify2.c \
+            lib/train2/src/train2.c 
+        echo "To start: "
+        echo " ./release/app_5_2 "
         ;;
     4)
-        echo "Running 5.2 build optimized 1..."
+        echo "Compiling 5.2 optimized 1..."
         gcc -Wall -o release/app_5_2_opt_1 app/src/main.c \
             -Ilib/image_helper/include \
             -Ilib/classify/include \
@@ -77,11 +85,13 @@ case $choice in
             -Ilib/train/include \
             lib/image_helper/src/image_helper.c \
             lib/mnist/src/mnist.c \
-            lib/classify/src/classify.c \
-            lib/train_2/src/train.c 
+            lib/classify2/src/classify2.c \
+            lib/train2/src/train2.c 
+        echo "To start: "
+        echo " ./release/app_5_2_opt_1 "
         ;;
     5)
-        echo "Running 5.2 build optimized 2..."
+        echo "Compiling 5.1 optimized 2..."
         gcc -Wall -o release/app_5_2_opt_2 app/src/main.c \
             -Ilib/image_helper/include \
             -Ilib/classify/include \
@@ -89,8 +99,10 @@ case $choice in
             -Ilib/train/include \
             lib/image_helper/src/image_helper.c \
             lib/mnist/src/mnist.c \
-            lib/classify/src/classify.c \
-            lib/train_2/src/train.c 
+            lib/classify2/src/classify2.c \
+            lib/train2/src/train2.c 
+        echo "To start: "
+        echo " ./release/app_5_2_opt_2 "
         ;;
     6)
         echo "Exiting..."
