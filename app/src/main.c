@@ -18,12 +18,14 @@ int main(void)
     struct immagine immagine_simile;
 
     testchoice(&imagetest); // funzione per selezionare l'immagine da riconoscere
-	print(&imagetest);
-	printf("la label dell'immagine da testare è pari a: %d",imagetest.label);
+    
+    print(&imagetest);  //stampo l'immagine di test
+    
     list = train(head); // funzione per caricare su la list "list" le immagini da utilizzare come database
+    
 
     matching_number = classify(&imagetest, list, &immagine_simile);
-	print(&immagine_simile);
+
     printf("\nL'immagine rappresenta il numero %d\n", matching_number);
 
     rimuovi(list);
