@@ -6,7 +6,7 @@ INSTRUCTIOSN TO COMPILE AND RUN TEST:
 	cd build && cmake .. && cd test && make classify_lib_test
 
 + TO RUN TEST USE:
-	./test_image_helper/classify_lib_test
+	./test_classify/classify_lib_test
 --------------------------------------------------
 */
 #include "unity.h"
