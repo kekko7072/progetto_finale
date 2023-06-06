@@ -16,32 +16,81 @@ echo "6. Exit"
 read -p "Enter your choice (1-3): " choice
 
 # Delete and create build directory
-rm -rf build && mkdir build
-
-# Enter in build and run cmake
-cd build && cmake ..
+rm -rf release && mkdir release
 
 # Execute the corresponding test based on the user's choice
 case $choice in
     0)
         echo "Running 5.1 build..."
+        gcc -Wall -o release/main_5_1 app/src/main.c \
+            -Ilib/image_helper/include \
+            -Ilib/classify/include \
+            -Ilib/mnist/include \
+            -Ilib/train/include \
+            lib/image_helper/src/image_helper.c \
+            lib/mnist/src/mnist.c \
+            lib/classify/src/classify.c \
+            lib/train/src/train.c 
         ;;
     1)
         echo "Running 5.1 build optimized 1..."
-        gcc -Wall -O1 
+        gcc -Wall -O1 -o release/main_5_1_opt_1 app/src/main.c \
+            -Ilib/image_helper/include \
+            -Ilib/classify/include \
+            -Ilib/mnist/include \
+            -Ilib/train/include \
+            lib/image_helper/src/image_helper.c \
+            lib/mnist/src/mnist.c \
+            lib/classify/src/classify.c \
+            lib/train/src/train.c 
         ;;
     2)
         echo "Running 5.1 build optimized 2..."
-        gcc -Wall -O1 
+        gcc -Wall -O2 -o release/main_5_1_opt_2 app/src/main.c \
+            -Ilib/image_helper/include \
+            -Ilib/classify/include \
+            -Ilib/mnist/include \
+            -Ilib/train/include \
+            lib/image_helper/src/image_helper.c \
+            lib/mnist/src/mnist.c \
+            lib/classify/src/classify.c \
+            lib/train/src/train.c
         ;;
     3)
         echo "Running 5.2 build..."
+        gcc -Wall -o release/main_5_2 app/src/main.c \
+            -Ilib/image_helper/include \
+            -Ilib/classify/include \
+            -Ilib/mnist/include \
+            -Ilib/train/include \
+            lib/image_helper/src/image_helper.c \
+            lib/mnist/src/mnist.c \
+            lib/classify_2/src/classify.c \
+            lib/train_2/src/train.c 
         ;;
     4)
         echo "Running 5.2 build optimized 1..."
+        gcc -Wall -o release/main_5_2_opt_1 app/src/main.c \
+            -Ilib/image_helper/include \
+            -Ilib/classify/include \
+            -Ilib/mnist/include \
+            -Ilib/train/include \
+            lib/image_helper/src/image_helper.c \
+            lib/mnist/src/mnist.c \
+            lib/classify_2/src/classify.c \
+            lib/train_2/src/train.c 
         ;;
     5)
         echo "Running 5.2 build optimized 2..."
+        gcc -Wall -o release/main_5_2_opt_2 app/src/main.c \
+            -Ilib/image_helper/include \
+            -Ilib/classify/include \
+            -Ilib/mnist/include \
+            -Ilib/train/include \
+            lib/image_helper/src/image_helper.c \
+            lib/mnist/src/mnist.c \
+            lib/classify_2/src/classify.c \
+            lib/train_2/src/train.c 
         ;;
     6)
         echo "Exiting..."
