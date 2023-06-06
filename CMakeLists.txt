@@ -21,6 +21,8 @@ add_subdirectory( lib/classify )
 add_subdirectory( lib/image_helper )
 add_subdirectory( lib/mnist )
 add_subdirectory( lib/train )
+add_subdirectory( lib/classify2 )
+add_subdirectory( lib/train2 )
 
 # Create the targets for the entire example-app.
 add_subdirectory( app )

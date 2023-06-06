@@ -3,78 +3,50 @@
 #include <assert.h>
 #include "image_helper.h"
 #include "mnist.h"
+#include "train2.h"
+#include "string.h"
 #include "train.h"
-#include "classify.h"
+//#include "classify.h"
+#include "classify2.h"
 
 
 
 int main(void)
 {
-    struct immagine imagetest;    // immagine da confrontare
-    int matching_number;          // risultato atteso
-    struct immagine *head = NULL; // testa lista concatenata  //matrice dove salvare il conttenuto dell'immagine test
-
-    struct immagine *list = NULL;
-    struct immagine immagine_simile;
-    int mode;
-
-    while ((mode != 1) && (mode != 2))
-    {
-        printf("CHOSEN MODE: ");
-        scanf("%d", &mode);
-    }
-
-    testchoice(&imagetest); // funzione per selezionare l'immagine da riconoscere
-
-while((mode!=1)&&(mode!=2))
-{printf("CHOSEN MODE: ");
-scanf("%d",&mode);}
-
-testchoice(&imagetest);  //funzione per selezionare l'immagine da riconoscere
  
-print(&imagetest); //stampo a schermo l'immagine di prova
+ //numero immagine contenuta nel database test
  
+struct immagine *imagetest;  //immagine da confrontare
+int matching_number;  //risultato atteso
+struct immagine *head = NULL;  //testa lista concatenata  //matrice dove salvare il conttenuto dell'immagine test
+
+struct immagine *list;  
+struct immagine *testa;
+struct immagine *immagine_simile;
+ 
+list=train_ordinato(head);
+head = list;
+testa = head;
+for (int i = 0; i < 30; i++){
+    printf ("%ld", testa->intensity);
+    printf ("\n");
+	testa = testa->next;
+}
+
+imagetest = scelta();
 
 
 
-list=train(head);  //funzione per caricare su la list "list" le immagini da utilizzare come database
-
-matching_number=classify(&imagetest,list,&immagine_simile);
-
-
+print(imagetest);
+printf("\nQuesto è il label che vorrei ottenere: %d\n",imagetest->label);
+printf("Questa è l'intensit test: %ld\n", imagetest->intensity);
 
 
-printf("\nL'immagine rappresnta il numero %d\n",matching_number); 
+immagine_simile=classificadue(imagetest,list); 
 
-    rimuovi(list);
-
-    /*
-    int main()
-    {
-
-        struct immagine *head = NULL;
-        struct immagine *testa = NULL;
-        int label;
-        double pixel;
-        head = train(head);
-        testa = head;
-        pixel = pixel_at(10, 10, head);
-        printf("pixel: %f \n", pixel);
-        printf("intensit: %ld \n", head->intensity);
-        label = get_label(head);
-        printf("label:%d \n", label);
-        print(head);
-        for (int j = 0; j < 59999; j++)
-            head = head->next;
-        pixel = pixel_at(10, 10, head);
-        printf("pixel: %f \n", pixel);
-        printf("intensit: %ld \n", head->intensity);
-        label = get_label(head);
-        printf("label:%d \n", label);
-        print(head);
-
-        rimuovi(testa);
-    */
-
-    return 0;
+print(immagine_simile);
+printf("\nquesto è il label dell'immagine simile %d\n",immagine_simile->label); 
+printf("Questa è l'intensit simile: %ld\n", immagine_simile->intensity);
+rimuovi(head);
+return 0;
 }

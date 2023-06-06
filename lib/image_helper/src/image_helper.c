@@ -4,20 +4,18 @@
 #include <assert.h>
 #include "string.h"
 
-double pixel_at(int x, int y, const struct immagine *image)
+int pixel_at(int x, int y, const struct immagine *image)
 {
 	if (x <= 28 && y <= 28)
 	{
 		return (image->matrice[(x - 1 + (y - 1) * 28)]);
 	}
 	return (-1);
-}
-
+} // questa funzione funziona
 void set_label(int x, struct immagine *image)
 {
 	image->label = x;
-}
-
+} // questa funzione funziona
 int get_label(struct immagine *image)
 {
 	if (image->label > 9 || image->label < 0)
@@ -25,21 +23,19 @@ int get_label(struct immagine *image)
 		return (-1);
 	}
 	return (image->label);
-}
+} // pronta per il testing
 
 long int get_intensity(const struct immagine *image)
 {
-	long int intensity = 0;
-	for (int i = 0; i <= 783; i++)
+	long int intensit = 0;
+	int i, j;
+	for (i = 0; i <= 783; i++)
 	{
-		// printf("%f\t", image->matrice[i]);
-		intensity += image->matrice[i];
+		intensit += image->matrice[i];
 	}
-	return intensity;
-}
+	return (intensit);
+} // funzione pronta per il testing
 
-/*
-TODO FIXARE PRINT CHE NON RITORNA VALORI CORRETTI */
 void print(const struct immagine *image)
 {
 	int i, j;
@@ -49,23 +45,19 @@ void print(const struct immagine *image)
 		for (j = 0; j <= 27; j++)
 		{
 			valore = image->matrice[((i * 28) + j)];
-
-			// TODO CONTROLLARE QUESTO VALORE
-
 			if (valore <= 64)
-				printf(" ");
+				printf("  ");
 			if (valore <= 128 && valore > 65)
-				printf("-");
+				printf("--");
 			if (valore <= 192 && valore > 129)
-				printf("=");
+				printf("==");
 			if (valore >= 193)
-				printf("X");
-			printf(" ");
+				printf("XX");
+			printf("  ");
 		}
 		printf("\n");
 	}
-}
-
+} // testabile
 long int compute_distance(const struct immagine *image1, const struct immagine *image2)
 {
 	long int distanza = 0;
@@ -81,8 +73,8 @@ long int compute_distance(const struct immagine *image1, const struct immagine *
 			distanza = distanza + (differenza * differenza);
 		}
 	}
-	return (distanza);
-}
+	return (distanza);  
+} // testabile
 
 int compate_intensity(const struct immagine *image1, const struct immagine *image2)
 {
@@ -97,7 +89,7 @@ int compate_intensity(const struct immagine *image1, const struct immagine *imag
 		return 1;
 	else
 		return 2;
-} // To-do: Compara l'intensità di due immagini, restituisce 1 se l'intensità dell'immagine 1 è maggiore dell'immagine 2, restituisce 2 in casoo contrario
+}
 
 char *compare_image(const struct immagine *image1, const struct immagine *image2)
 {
@@ -135,4 +127,49 @@ char *compare_image(const struct immagine *image1, const struct immagine *image2
 			break;
 	}
 	return risultato;
+} // Quando la si usa ricordare di fare il free
+
+/*
+int main()
+{
+
+	struct immagine picture, picture2;
+	picture.matrice[11][11] = 26;
+	int valore = pixel_at(33, 33, &picture);
+	printf ("%d \n", valore);
+	set_label (4, &picture);
+	printf("%d \n", picture.label);
+	valore = get_label (&picture);
+	printf ("%d \n", valore);
+	int i,j;
+	for (i = 0; i <= 27; i++)
+	{
+		//k += 10;
+		for (j = 0; j <= 27; j++)
+		{
+			picture.matrice[i][j] = 3;
+		}
+	}
+	for (i = 0; i <= 27; i++)
+	{
+		//k += 10;
+		for (j = 0; j <= 27; j++)
+		{
+			picture2.matrice[i][j] = 2;
+		}
+	}
+	long int intensit = get_intensity(&picture);
+	printf ("%ld \n", intensit);
+	print(&picture);
+	long int distanza = compute_distance(&picture, &picture2);
+	printf ("%ld \n", distanza);
+
+	int confronto_intensità = compate_intensity (&picture, &picture2);
+	printf ("confronto intensità = %d \n", confronto_intensità);
+
+	char *confronto_immagini = compare_image (&picture, &picture2);
+	printf ("Esito confronto: %s\n", confronto_immagini);
+
+	free (confronto_immagini);
 }
+*/
