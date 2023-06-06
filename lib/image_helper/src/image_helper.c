@@ -28,8 +28,7 @@ int get_label(struct immagine *image)
 long int get_intensity(const struct immagine *image)
 {
 	long int intensit = 0;
-	int i, j;
-	for (i = 0; i <= 783; i++)
+	for (int i = 0; i <= 783; i++)
 	{
 		intensit += image->matrice[i];
 	}
@@ -73,7 +72,7 @@ long int compute_distance(const struct immagine *image1, const struct immagine *
 			distanza = distanza + (differenza * differenza);
 		}
 	}
-	return (distanza);  
+	return (distanza);
 } // testabile
 
 int compate_intensity(const struct immagine *image1, const struct immagine *image2)
