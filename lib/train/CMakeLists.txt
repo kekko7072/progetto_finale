@@ -12,7 +12,6 @@ add_library( train SHARED src/train.c)
 target_include_directories( train
     PUBLIC include )
 
-
 add_library( LII::train ALIAS train )
 
 target_link_libraries( train

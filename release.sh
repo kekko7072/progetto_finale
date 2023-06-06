@@ -13,26 +13,20 @@ echo "5. 5.2 - Optimized 1"
 echo "6. Exit"
 
 # Read user input
-read -p "Enter your choice (1-3): " choice
+read -p "Enter your choice (1-6): " choice
 
-# Delete and create build directory
-rm -rf release && mkdir release
+# Delete and create build directory and run cmake
+rm -rf build && mkdir build && cd build && cmake ..
 
 # Execute the corresponding test based on the user's choice
 case $choice in
     0)
-        echo "Compiling 5.1..."
-        gcc -Wall -o release/app app/src/main.c \
-            -Ilib/image_helper/include \
-            -Ilib/classify/include \
-            -Ilib/mnist/include \
-            -Ilib/train/include \
-            lib/image_helper/src/image_helper.c \
-            lib/mnist/src/mnist.c \
-            lib/classify/src/classify.c \
-            lib/train/src/train.c 
-        echo "To start: "
-        echo " ./release/5_1/app "
+        echo "Compiling 5.1 ..."
+        make app && cd app
+        echo "\nStarting 5.1 ...\n"
+        sleep 3s
+        chmod +x ./app 
+        ./app
         ;;
     1)
         echo "Compiling 5.1 optimized 1..."
