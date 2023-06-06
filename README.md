@@ -13,23 +13,14 @@ Partecipanti:
 |   Parise Leonardo   |   2005438   |   [leonardo parise](https://github.com/leonardoparise)   |
 |   Vezzani Francesco   |   2003297   |   [kekko7072](https://github.com/kekko7072)   |
 
-# Compilazione
+# Compilazione ed esecuzione
 Comandi per l'esecuzione dei file compilati:
 ```
 sh release.sh
 ```
 e poi basta selezionare la versione che si desidera avere.
 
-# Esecuzione
-  ## versione 5.1
-  - non ottimizzata : `./release/app_5_1`
-  - ottimizzata **gcc -O1** : `./release/app_5_1_opt_1`
-  - ottimizzata **gcc -O2** : `./release/app_5_1_opt_2`
-  
-  ## versione 5.2
-   - non ottimizzata :  `./release/app_5_2`
-  - ottimizzata **gcc -O1** :  `./release/app_5_2_opt_1`
-  - ottimizzata **gcc -O2** : `./release/app_5_2_opt_2`
+> NOTA: Al momento l'esecuzione delle versioni ottimizzate non sono disponibili a causa di problemi con le directories dei dati.
 
 # Testing
 Per l'escecuzione dei test è necessario avviare il programma bash di testing:
