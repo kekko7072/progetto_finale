@@ -6,8 +6,6 @@
 #include "train.h"
 #include "classify.h"
 
-// IL PROGRAMMA SBAGLIA QUANDO VIENE DATA COME IMMAGINE DI TEST LA 2
-
 int main(void)
 {
     struct immagine imagetest;    // immagine da confrontare
@@ -18,11 +16,10 @@ int main(void)
     struct immagine immagine_simile;
 
     testchoice(&imagetest); // funzione per selezionare l'immagine da riconoscere
-    
-    print(&imagetest);  //stampo l'immagine di test
-    
+
+    print(&imagetest); // stampo l'immagine di test
+
     list = train(head); // funzione per caricare su la list "list" le immagini da utilizzare come database
-    
 
     matching_number = classify(&imagetest, list, &immagine_simile);
 

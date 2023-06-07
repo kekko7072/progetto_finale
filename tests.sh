@@ -23,7 +23,7 @@ case $choice in
         echo "Running Test classify..."
         make classify_lib_test && cd test 
         chmod +x ./test_classify/classify_lib_test
-       ./test_classify/classify_lib_test
+        ./test_classify/classify_lib_test
         ;;
     2)
         echo "Running Test image_helper..."
