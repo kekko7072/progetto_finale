@@ -35,7 +35,7 @@ case $choice in
         echo "Running Test mnist..."
         make mnist_lib_test && cd test 
         chmod +x ./test_mnist/mnist_lib_test
-        ./test_image_helper/image_helper_lib_test
+        ./test_mnist/mnist_lib_test
         ;;
     4)
         echo "Running Test train..."

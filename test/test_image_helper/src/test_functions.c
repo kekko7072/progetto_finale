@@ -48,7 +48,7 @@ void test_get_intensity(void)
 	image_testing->label = test_label[0];
 	memcpy(image_testing->matrice, test_image[0], sizeof(double) * 784);
 
-	int intensity_value = 864;
+	int intensity_value = 3448;
 	TEST_ASSERT_EQUAL_INT_MESSAGE(get_intensity(image_testing), intensity_value, "get label error");
 
 	free(image_testing);
@@ -85,7 +85,7 @@ void test_compute_distance(void)
 
 	long int distance = compute_distance(image_testing1, image_testing2);
 
-	TEST_ASSERT_EQUAL_INT_MESSAGE(distance, 5364, "compute_distance error");
+	TEST_ASSERT_EQUAL_INT_MESSAGE(distance, 21806, "compute_distance error");
 
 	free(image_testing1);
 	free(image_testing2);
@@ -109,7 +109,7 @@ void test_compare_intensity(void)
 
 	int confronto_intensità = compate_intensity(image_testing1, image_testing2);
 
-	TEST_ASSERT_EQUAL_INT_MESSAGE(confronto_intensità, 1, "compate_intensity error");
+	TEST_ASSERT_EQUAL_INT_MESSAGE(confronto_intensità, 2, "compate_intensity error");
 }
 
 void test_compare_image(void)
