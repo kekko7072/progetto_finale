@@ -1,7 +1,5 @@
 #!/bin/bash
 
-#chmod +x tests.sh
-
 # Prompt the user to choose a test
 echo "Please choose a release to build:"
 echo "1. 5.1"
@@ -21,7 +19,6 @@ case $choice in
         make app && cd app
         echo "\nStarting 5.1 ...\n"
         sleep 3s
-        chmod +x ./app 
         ./app
         ;;
     2)
@@ -29,7 +26,6 @@ case $choice in
         make app_2 && cd app
         echo "\nStarting 5.2 ...\n"
         sleep 3s
-        chmod +x ./app_2 
         ./app_2
         ;;
     3)  
