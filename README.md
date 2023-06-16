@@ -1,30 +1,30 @@
-# Progetto Finale
+# Progetto Finale - Laboratorio Informatica Industriale
 INP7078557 - Progetto finale
 
-Progetto finale per il corso di laboratorio di informatica industriale della Professoressa Emilia Reggiani.
+Progetto finale per il corso di laboratorio di informatica industriale della Professoressa M. Reggiani.
 
 # Partecipanti
 Nome del gruppo: PaPaBeVe
 Partecipanti: 
 | Nome Cognome | Matricola | GitHub |
 |----------|----------|----------|
-|   Bellorio Luca   |   2003720   |   [lucabellorio](https://github.com/lucabellorio)   |
-|   Pasqualotto Stephen   |   2001349   |   [stephenpasqualottounipd](https://github.com/stephenpasqualottounipd)   |
-|   Parise Leonardo   |   2005438   |   [leonardo parise](https://github.com/leonardoparise)   |
-|   Vezzani Francesco   |   2003297   |   [kekko7072](https://github.com/kekko7072)   |
+|   Bellorio Luca   |   20037XX   |   [lucabellorio](https://github.com/lucabellorio)   |
+|   Pasqualotto Stephen   |   20013XX   |   [stephenpasqualottounipd](https://github.com/stephenpasqualottounipd)   |
+|   Parise Leonardo   |   20054XX   |   [leonardo parise](https://github.com/leonardoparise)   |
+|   Vezzani Francesco   |   20032XX   |   [kekko7072](https://github.com/kekko7072)   |
 
 # Compilazione ed esecuzione
-Comandi per l'esecuzione dei file compilati:
+Comandi per la compilazione e l'esecuzione dei file compilati:
 ```
 sh release.sh
 ```
-e poi basta selezionare la versione che si desidera avere.
+e poi basta selezionare la versione che si desidera avviare.
 
 > NOTA: Al momento l'esecuzione delle versioni ottimizzate non sono disponibili a causa di problemi con le directories dei dati.
 
 # Testing
 Per l'escecuzione dei test è necessario avviare il programma bash di testing:
 ```
-sh test.sh
+sh tests.sh
 ```
-In automatico verranno compilati ed eseguiti i test per le versioni 5.1 e 5.2.
+e poi basta selezionare il test che si desidera avviare.
